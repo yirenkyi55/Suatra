@@ -1,0 +1,27 @@
+[
+  {
+    "Id": "1e7dc72f-3336-4b5d-b429-b68be7e26c69",
+    "Name": "C#",
+    "CategoryId": "46ff38a3-7c11-4320-b823-76e5dedb5e43"
+  },
+  {
+
+    "Id": "627de553-9461-4a28-9ad0-bb32c86e74a9",
+    "Name": "Html & CSS",
+    "CategoryId": "46ff38a3-7c11-4320-b823-76e5dedb5e43"
+
+  },
+  {
+
+    "Id": "0304ecb1-6ff0-491e-b617-d31f80bf8024",
+    "Name": "SQL",
+    "CategoryId": "e9e7061e-6ff0-4bd3-9ba5-f103e0707200"
+  },
+  {
+
+    "Id": "f618c2ad-35c7-4dd2-85d8-17bcdd42e862",
+    "Name": "Adobe Premier Pro",
+    "CategoryId": "9e1cf9df-2f27-4e9a-9091-636cb96eea4e"
+
+  }
+]

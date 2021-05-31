@@ -1,0 +1,91 @@
+[
+  {
+    "Id": "6d9ed535-0c29-4421-8a03-1ccc545ecf57",
+    "CourseId": "bde010e7-197e-4c11-bc80-396fe34e0ed6",
+    "Name": "Introduction",
+    "Order": 1
+
+  },
+  {
+    "Id": "5c5d2ac7-2a9c-4efc-b316-791ece4f132b",
+    "CourseId": "bde010e7-197e-4c11-bc80-396fe34e0ed6",
+    "Name": "Setting up Development Environment",
+    "Order": 2
+
+  },
+  {
+    "Id": "3fe6a643-dd3e-4fac-886f-0f5215b3941a",
+    "CourseId": "bde010e7-197e-4c11-bc80-396fe34e0ed6",
+    "Name": "Two way Data Binding",
+    "Order": 3
+
+  },
+
+  {
+    "Id": "0846f4d1-5f67-43eb-b4e9-a51ad796b11c",
+    "CourseId": "4f422b86-892c-40a5-8305-a6ec7e2444ef",
+    "Name": "Why Savings",
+    "Order": 1
+  },
+  {
+    "Id": "19c7f9f8-bc4d-4523-a611-a864a86f4544",
+    "CourseId": "4f422b86-892c-40a5-8305-a6ec7e2444ef",
+    "Name": "Daily Habit Routine",
+    "Order": 2
+  },
+  {
+    "Id": "7f2be807-6bdd-4fa3-9aa3-765d8941e63b",
+    "CourseId": "dc3eedb0-9982-4f8c-abee-f86f46e79127",
+    "Name": "Installing AutoCad",
+    "Order": 1
+  },
+  {
+    "Id": "56694a2f-e667-4d76-92a2-b5073079985f",
+    "CourseId": "dc3eedb0-9982-4f8c-abee-f86f46e79127",
+    "Name": "Building Your First Structure",
+    "Order": 2
+  },
+  {
+    "Id": "9c5213ff-9f37-49f2-89c5-48f083f155f0",
+    "CourseId": "dc3eedb0-9982-4f8c-abee-f86f46e79127",
+    "Name": "3D Design Modellings",
+    "Order": 3
+  },
+  {
+    "Id": "155e1ca7-3b75-48bc-885f-87e162634990",
+    "CourseId": "b337f50a-4822-4059-a33e-69f354346103",
+    "Name": "Installing Microsoft Excel",
+    "Order": 1
+  },
+  {
+    "Id": "db157d62-0652-4656-bc0a-586b0a5b6a25",
+    "CourseId": "b337f50a-4822-4059-a33e-69f354346103",
+    "Name": "Excel Functions at Your Doorstep",
+    "Order": 2
+  },
+  {
+    "Id": "c35c4b1d-bd0b-4136-b2fb-65fd318c9c8f",
+    "CourseId": "b337f50a-4822-4059-a33e-69f354346103",
+    "Name": "Migrating to VBA",
+    "Order": 3
+  },
+  {
+    "Id": "49befd84-c753-430e-9cce-3c3f23426ed3",
+    "CourseId": "6cd62ed3-dbad-4aae-9a24-055e51a88c5b",
+    "Name": "Installing .Net Core",
+    "Order": 1
+  },
+  {
+    "Id": "863eeff8-4192-453d-ac6a-cb642a17e6d0",
+    "CourseId": "6cd62ed3-dbad-4aae-9a24-055e51a88c5b",
+    "Name": "The Repository Pattern",
+    "Order": 2
+  },
+  {
+    "Id": "2e9f8b77-2f32-4f67-8638-521183d1dcd8",
+    "CourseId": "6cd62ed3-dbad-4aae-9a24-055e51a88c5b",
+    "Name": "Unit Testing our Code",
+    "Order": 3
+
+  }
+]

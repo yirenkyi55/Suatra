@@ -1,10 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 
 namespace Suatra.Domain.Entities
 {
     public class User : IdentityUser
     {
+        public User()
+        {
+            CourseAuthors = new HashSet<CourseAuthor>();
+        }
         public string FirstName { get; set; }
 
         public string OtherName { get; set; }
@@ -21,6 +26,7 @@ namespace Suatra.Domain.Entities
 
         public DateTime RefreshTokenExpiry { get; set; }
 
+        public virtual ICollection<CourseAuthor> CourseAuthors { get; set; }
 
     }
 }

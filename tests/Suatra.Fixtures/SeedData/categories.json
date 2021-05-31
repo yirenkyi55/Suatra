@@ -1,0 +1,22 @@
+[
+  {
+    "Id": "46ff38a3-7c11-4320-b823-76e5dedb5e43",
+    "Name": "Programming Languages"
+  },
+  {
+    "Id": "72289a18-409b-4026-93e1-6574fa04975e",
+    "Name": "Web Development"
+  },
+  {
+    "Id": "84905e7f-3c57-42fb-9501-70b6d706aae4",
+    "Name": "Mobile Development"
+  },
+  {
+    "Id": "9e1cf9df-2f27-4e9a-9091-636cb96eea4e",
+    "Name": "Video Editing"
+  },
+  {
+    "Id": "e9e7061e-6ff0-4bd3-9ba5-f103e0707200",
+    "Name": "Database"
+  }
+]

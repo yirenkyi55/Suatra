@@ -1,0 +1,27 @@
+[
+  {
+    "Id": "25219cd9-c511-40e7-b284-3dddf07b7aa7",
+    "CourseId": "bde010e7-197e-4c11-bc80-396fe34e0ed6",
+    "UserId": "60a33224-d891-4a64-ba34-9c21c39f91a1"
+  },
+  {
+    "Id": "dd0f3c4d-e732-4805-a717-d1bce61dcf00",
+    "CourseId": "6cd62ed3-dbad-4aae-9a24-055e51a88c5b",
+    "UserId": "60a33224-d891-4a64-ba34-9c21c39f91a1"
+  },
+  {
+    "Id": "f1877c78-d692-426c-a087-b5e4296c2f6d",
+    "CourseId": "4f422b86-892c-40a5-8305-a6ec7e2444ef",
+    "UserId": "0199e85b-e206-4f8a-a14f-db4f31c280f8"
+  },
+  {
+    "Id": "0743eaa3-d3f8-415a-93ff-7713b52fe990",
+    "CourseId": "dc3eedb0-9982-4f8c-abee-f86f46e79127",
+    "UserId": "0199e85b-e206-4f8a-a14f-db4f31c280f8"
+  },
+  {
+    "Id": "2ec9dfb3-c66e-46b1-9690-aa01c75976e9",
+    "CourseId": "b337f50a-4822-4059-a33e-69f354346103",
+    "UserId": "4bdb9f04-f347-45e1-ad4c-364e65ac0a45"
+  }
+]

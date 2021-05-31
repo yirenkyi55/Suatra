@@ -1,4 +1,5 @@
 ﻿using Suatra.Domain.Common;
+using System;
 using System.Collections.Generic;
 
 namespace Suatra.Domain.Entities
@@ -12,5 +13,9 @@ namespace Suatra.Domain.Entities
         public string Name { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
+
+        public Guid CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
     }
 }

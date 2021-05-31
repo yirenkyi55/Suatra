@@ -1,0 +1,52 @@
+[
+  {
+    "Id": "bde010e7-197e-4c11-bc80-396fe34e0ed6",
+    "Name": "Angular for Beginners",
+    "About": "This course aims to assists beginners who want to learn angular or any angular developer who wants to take their coding level to the next step",
+    "Description": "Join the most comprehensive, popular and bestselling Angular course on Udemy and benefit not just from a proven course concept but from a huge community as well! ",
+    "Expectations": "Develop modern, complex, responsive and scalable web applications with Angular 12, Fully understand",
+    "IntendedAudience": "Beginners",
+    "TopicId": "1e7dc72f-3336-4b5d-b429-b68be7e26c69",
+    "CourseLevel": 0
+  },
+  {
+    "Id": "6cd62ed3-dbad-4aae-9a24-055e51a88c5b",
+    "Name": ".Net Core Best Practices",
+    "About": "This course aims to provide students with practical knowledge about .net core and its architecture",
+    "Description": "The course is a complete series and include lecture notes and relevant materials to equip students",
+    "Expectations": "Students are expected to know the niggty-gritty about the framework at the end of this course",
+    "IntendedAudience": "All students willing to learn the .Net core framework",
+    "TopicId": "1e7dc72f-3336-4b5d-b429-b68be7e26c69",
+    "CourseLevel": 1
+  },
+  {
+    "Id": "4f422b86-892c-40a5-8305-a6ec7e2444ef",
+    "Name": "Savings For the Future",
+    "About": "This course aims to provide students with practical knowledge about how to save for the future",
+    "Description": "The course is a complete series and include lecture notes and relevant materials to equip students",
+    "Expectations": "Students will learn well how to save for the future and build their career as well",
+    "IntendedAudience": "Students willing to be billionaires in future",
+    "TopicId": "627de553-9461-4a28-9ad0-bb32c86e74a9",
+    "CourseLevel": 1
+  },
+  {
+    "Id": "dc3eedb0-9982-4f8c-abee-f86f46e79127",
+    "Name": "Your guide to AutoCad",
+    "About": "This course aims to provide students with practical knowledge about AutoCad and Building",
+    "Description": "The course is a complete series and include lecture notes and relevant materials to equip students",
+    "Expectations": "Students are expected to all about the AutoCad Software",
+    "IntendedAudience": "Development students willing to learn paracticals and the use of AutoCAd",
+    "TopicId": "0304ecb1-6ff0-491e-b617-d31f80bf8024",
+    "CourseLevel": 0
+  },
+  {
+    "Id": "b337f50a-4822-4059-a33e-69f354346103",
+    "Name": "Excell at your doorstep",
+    "About": "This course aims to provide students with practical knowledge about Microsoft Excel",
+    "Description": "The course is a complete series and include lecture notes and relevant materials to equip students",
+    "Expectations": "Students are expected to know how to use basic excel in their day-to-day activities and master the excel environment",
+    "IntendedAudience": "All students willing to learn the Microsoft Excel",
+    "TopicId": "f618c2ad-35c7-4dd2-85d8-17bcdd42e862",
+    "CourseLevel": 2
+  }
+]

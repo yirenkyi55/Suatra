@@ -1,0 +1,20 @@
+[
+  {
+    "Id": "60a33224-d891-4a64-ba34-9c21c39f91a1",
+    "FirstName": "Emmanuel",
+    "LastName": "Yirenkyi",
+    "Bio": "Instructor with over five years teaching experience"
+  },
+  {
+    "Id": "4bdb9f04-f347-45e1-ad4c-364e65ac0a45",
+    "FirstName": "John",
+    "LastName": "Benny",
+    "Bio": "Instructor with over three years teaching experience"
+  },
+  {
+    "Id": "0199e85b-e206-4f8a-a14f-db4f31c280f8",
+    "FirstName": "Grace",
+    "LastName": "Ashley",
+    "Bio": "Instructor with over nine years teaching experience"
+  }
+]
