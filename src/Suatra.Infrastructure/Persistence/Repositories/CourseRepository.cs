@@ -1,9 +1,9 @@
-﻿using Suatra.Application.Contracts.Persistence;
+﻿using Suatra.Application.Common.Contracts.Persistence;
 using Suatra.Domain.Entities;
 
 namespace Suatra.Infrastructure.Persistence.Repositories
 {
-    public class CourseRepository : BaseRepository<Course>, ICourseRepository
+    public class CourseRepository : GenericRepository<Course>, ICourseRepository
     {
         private readonly ApplicationDbContext _context;
 

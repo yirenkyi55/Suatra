@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Suatra.API.Extensions;
+using Suatra.API.Helpers.Middlewares;
 using Suatra.Application;
 using Suatra.Infrastructure;
 
@@ -36,11 +35,7 @@ namespace Suatra.API
             IWebHostEnvironment env,
             IApiVersionDescriptionProvider provider)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-
-            }
+            app.UseCustomMiddlewareHandler();
 
             // app.UseHttpsRedirection();
 

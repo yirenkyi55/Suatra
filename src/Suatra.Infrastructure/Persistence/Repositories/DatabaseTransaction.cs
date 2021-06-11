@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
-using Suatra.Application.Contracts.Persistence;
+using Suatra.Application.Common.Contracts.Persistence;
 
 namespace Suatra.Infrastructure.Persistence.Repositories
 {

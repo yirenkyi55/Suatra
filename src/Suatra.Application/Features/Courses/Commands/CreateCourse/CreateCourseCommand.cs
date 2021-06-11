@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using Suatra.Application.Contracts.Persistence;
+using Suatra.Application.Common.Contracts.Persistence;
 using Suatra.Application.Features.Courses.Dto.Requests;
 using Suatra.Application.Features.Courses.Dto.Responses;
 using Suatra.Domain.Entities;

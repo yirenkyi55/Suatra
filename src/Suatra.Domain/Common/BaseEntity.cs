@@ -6,5 +6,7 @@ namespace Suatra.Domain.Common
     {
         public Guid Id { get; set; }
 
+        public bool IsInActive { get; set; }
+
     }
 }

@@ -19,6 +19,10 @@
     "Id": "1e7dc72f-3336-4b5d-b429-b68be7e26c69",
     "Name": "Development"
   },
+  "category": {
+    "Id": "46ff38a3-7c11-4320-b823-76e5dedb5e43",
+    "Name": "Programming Languages"
+  },
   "section": {
     "Id": "6d9ed535-0c29-4421-8a03-1ccc545ecf57",
     "CourseId": "bde010e7-197e-4c11-bc80-396fe34e0ed6",

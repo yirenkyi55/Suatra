@@ -17,7 +17,7 @@ namespace Suatra.Fixtures
             base.OnModelCreating(builder);
             // Perform some database seeding
             builder.Seed<User>("./SeedData/users.json");
-            builder.Seed<Category>("./SeedData.categories.json");
+            builder.Seed<Category>("./SeedData/categories.json");
             builder.Seed<Topic>("./SeedData/topics.json");
             builder.Seed<Course>("./SeedData/courses.json");
             builder.Seed<CourseSection>("./SeedData/sections.json");

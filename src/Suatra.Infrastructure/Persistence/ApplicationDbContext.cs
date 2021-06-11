@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Suatra.Application.Contracts.Persistence;
+using Suatra.Application.Common.Contracts.Persistence;
 using Suatra.Domain.Entities;
 using Suatra.Infrastructure.Persistence.Repositories;
 using System.Reflection;

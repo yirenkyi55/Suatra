@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using Suatra.Application.Contracts.Persistence;
+using Suatra.Application.Common.Contracts.Persistence;
 using Suatra.Application.Features.Categories.Dto.Requests;
 using Suatra.Application.Features.Categories.Dto.Responses;
 using Suatra.Domain.Entities;
@@ -17,9 +17,9 @@ namespace Suatra.Application.Features.Categories.Commands.CreateCategory
     public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CategoryResponse>
     {
         private readonly IMapper _mapper;
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly IGenericRepository<Category> _categoryRepository;
 
-        public CreateCategoryCommandHandler(IMapper mapper, ICategoryRepository categoryRepository)
+        public CreateCategoryCommandHandler(IMapper mapper, IGenericRepository<Category> categoryRepository)
         {
             _mapper = mapper;
             _categoryRepository = categoryRepository;

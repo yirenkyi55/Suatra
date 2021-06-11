@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Suatra.Application;
 
 namespace Suatra.API.Extensions
 {
@@ -6,7 +7,7 @@ namespace Suatra.API.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddValidation();
 
             return services;
         }

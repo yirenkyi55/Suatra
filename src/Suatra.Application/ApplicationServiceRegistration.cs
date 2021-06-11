@@ -1,5 +1,7 @@
-﻿using MediatR;
+﻿using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Suatra.Application.Features.Categories.Dto.Requests;
 using System.Reflection;
 
 namespace Suatra.Application
@@ -15,6 +17,16 @@ namespace Suatra.Application
         }
 
 
+        public static IMvcBuilder AddValidation(this IMvcBuilder builder)
+        {
+            builder
+                .AddFluentValidation(c =>
+                {
+                    c.RegisterValidatorsFromAssemblyContaining<CreateCategoryRequest>();
+                }
+              );
 
+            return builder;
+        }
     }
 }

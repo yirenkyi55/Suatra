@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Suatra.Domain.Common;
 using System;
 using System.Collections.Generic;
 
@@ -28,5 +29,6 @@ namespace Suatra.Domain.Entities
 
         public virtual ICollection<CourseAuthor> CourseAuthors { get; set; }
 
+        public bool IsInActive { get; set; }
     }
 }

@@ -2,9 +2,8 @@
 
 namespace Suatra.Domain.Common
 {
-    public class AuditableEntity
+    public class AuditableEntity : BaseEntity
     {
-        public Guid Id { get; set; }
 
         public string CreatedBy { get; set; }
 
