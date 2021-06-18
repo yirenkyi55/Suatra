@@ -1,4 +1,5 @@
 ﻿using System;
+using Suatra.Application.Features.Topics.Dto.Responses;
 
 namespace Suatra.Application.Features.Courses.Dto.Responses
 {
@@ -24,6 +25,7 @@ namespace Suatra.Application.Features.Courses.Dto.Responses
 
         public string CoverVideoUri { get; set; }
 
+        public TopicResponse Topic { get; set; }
 
     }
 }

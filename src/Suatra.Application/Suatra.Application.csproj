@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\CourseSections\Queries\GetCourseSection" />
+    <Folder Include="Features\CourseSections\Queries\GetCourseSections" />
+    <Folder Include="Features\CourseSections\Specifications" />
     <Folder Include="Features\Courses\Queries\" />
     <Folder Include="Features\Topics\Queries\" />
   </ItemGroup>

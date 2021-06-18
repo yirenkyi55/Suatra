@@ -6,6 +6,7 @@ using Suatra.Infrastructure.Persistence.Specifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Suatra.Infrastructure.Persistence.Repositories
@@ -74,9 +75,22 @@ namespace Suatra.Infrastructure.Persistence.Repositories
             return await ApplySpec(specification).CountAsync();
         }
 
+        public async Task<int> GetMaxEntity(Expression<Func<T, int>> expression)
+        {
+           var results = await   _context.Set<T>().Select(expression).ToListAsync();
+           return results.DefaultIfEmpty(0).Max();
+        }
+        
+        public bool GetAny(Expression<Func<T, bool>> expression)
+        {
+            return  _context.Set<T>().Any(expression);
+        }
+
         private IQueryable<T> ApplySpec(ISpecification<T> specification)
         {
             return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), specification);
         }
+        
+         
     }
 }

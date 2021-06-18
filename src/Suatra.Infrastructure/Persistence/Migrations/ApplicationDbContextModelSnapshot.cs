@@ -183,6 +183,9 @@ namespace Suatra.Infrastructure.Persistence.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<int>("CourseStatus")
+                        .HasColumnType("int");
+
                     b.Property<string>("CoverPhotoUri")
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
@@ -209,8 +212,8 @@ namespace Suatra.Infrastructure.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IntendedAudience")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<bool>("IsInActive")
                         .HasColumnType("bit");
@@ -230,6 +233,7 @@ namespace Suatra.Infrastructure.Persistence.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Requirements")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("TopicId")

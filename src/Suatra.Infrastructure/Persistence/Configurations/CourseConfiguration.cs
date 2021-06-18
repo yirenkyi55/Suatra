@@ -13,10 +13,13 @@ namespace Suatra.Infrastructure.Persistence.Configurations
             builder.Property(x => x.About).IsRequired().HasMaxLength(250);
             builder.Property(x => x.Description).IsRequired();
             builder.Property(x => x.Expectations).IsRequired();
-            builder.Property(x => x.IntendedAudience).IsRequired();
+            builder.Property(x => x.Requirements).IsRequired();
+            builder.Property(x => x.IntendedAudience).HasMaxLength(500);
             builder.Property(x => x.CoverPhotoUri).HasMaxLength(150);
             builder.Property(x => x.CoverVideoUri).HasMaxLength(150);
-            builder.HasOne(x => x.Topic).WithMany(t => t.Courses).HasForeignKey(x => x.TopicId);
+            builder.HasOne(x => x.Topic).
+                WithMany(t => t.Courses)
+                .HasForeignKey(x => x.TopicId);
 
         }
     }

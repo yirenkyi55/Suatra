@@ -6,6 +6,7 @@ using Suatra.Application.Features.Courses.Dto.Responses;
 using Suatra.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
+using Suatra.Domain.Enums;
 
 namespace Suatra.Application.Features.Courses.Commands.CreateCourse
 {
@@ -17,9 +18,9 @@ namespace Suatra.Application.Features.Courses.Commands.CreateCourse
     public class CreateCourseCommandHandler : IRequestHandler<CreateCourseCommand, CourseResponse>
     {
         private readonly IMapper _mapper;
-        private readonly ICourseRepository _courseRepository;
+        private readonly IGenericRepository<Course> _courseRepository;
 
-        public CreateCourseCommandHandler(IMapper mapper, ICourseRepository courseRepository)
+        public CreateCourseCommandHandler(IMapper mapper, IGenericRepository<Course> courseRepository)
         {
             _mapper = mapper;
             _courseRepository = courseRepository;
@@ -29,7 +30,7 @@ namespace Suatra.Application.Features.Courses.Commands.CreateCourse
         {
             // map the request to a course entity
             var courseEntity = _mapper.Map<Course>(request.CreateCourseRequest);
-
+            courseEntity.CourseStatus = CourseStatus.InProgress;
 
             // Create the course, using the repository
             var course = await _courseRepository.AddAsync(courseEntity);
