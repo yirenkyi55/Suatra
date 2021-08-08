@@ -29,7 +29,7 @@ namespace Suatra.Application.Features.Topics.Commands.CreateTopic
         {
             var topic = _mapper.Map<Topic>(request.CreateTopicRequest);
 
-           await _topicRepository.AddAsync(topic);
+            _topicRepository.Add(topic);
 
            await _topicRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 

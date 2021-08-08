@@ -183,6 +183,9 @@ namespace Suatra.Infrastructure.Persistence.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<string>("AuthorId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("CourseStatus")
                         .HasColumnType("int");
 
@@ -241,33 +244,11 @@ namespace Suatra.Infrastructure.Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
                     b.HasIndex("TopicId");
 
                     b.ToTable("Courses");
-                });
-
-            modelBuilder.Entity("Suatra.Domain.Entities.CourseAuthor", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CourseId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsInActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("CourseAuthors");
                 });
 
             modelBuilder.Entity("Suatra.Domain.Entities.CourseSection", b =>
@@ -515,30 +496,19 @@ namespace Suatra.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Suatra.Domain.Entities.Course", b =>
                 {
+                    b.HasOne("Suatra.Domain.Entities.User", "Author")
+                        .WithMany("Courses")
+                        .HasForeignKey("AuthorId");
+
                     b.HasOne("Suatra.Domain.Entities.Topic", "Topic")
                         .WithMany("Courses")
                         .HasForeignKey("TopicId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Author");
+
                     b.Navigation("Topic");
-                });
-
-            modelBuilder.Entity("Suatra.Domain.Entities.CourseAuthor", b =>
-                {
-                    b.HasOne("Suatra.Domain.Entities.Course", "Course")
-                        .WithMany("CourseAuthors")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Suatra.Domain.Entities.User", "User")
-                        .WithMany("CourseAuthors")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Course");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Suatra.Domain.Entities.CourseSection", b =>
@@ -581,8 +551,6 @@ namespace Suatra.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Suatra.Domain.Entities.Course", b =>
                 {
-                    b.Navigation("CourseAuthors");
-
                     b.Navigation("CourseSections");
                 });
 
@@ -598,7 +566,7 @@ namespace Suatra.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Suatra.Domain.Entities.User", b =>
                 {
-                    b.Navigation("CourseAuthors");
+                    b.Navigation("Courses");
                 });
 #pragma warning restore 612, 618
         }

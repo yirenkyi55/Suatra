@@ -21,14 +21,24 @@ namespace Suatra.Infrastructure.Persistence.Repositories
         {
             _context = context;
         }
-        public async Task<T> AddAsync(T entity)
+        public T Add(T entity)
         {
-            return (await _context.Set<T>().AddAsync(entity)).Entity;
+            return ( _context.Set<T>().Add(entity)).Entity;
         }
 
-        public void Delete(T entity)
+        public void AddRange(IEnumerable<T> entities)
+        {
+            _context.Set<T>().AddRange(entities);
+        }
+
+        public void Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
+        }
+
+        public void RemoveRange(IEnumerable<T> entities)
+        {
+            _context.Set<T>().RemoveRange(entities);
         }
 
         public async Task<IReadOnlyList<T>> GetAllAsync()
@@ -36,6 +46,16 @@ namespace Suatra.Infrastructure.Persistence.Repositories
             return await _context.Set<T>()
                 .Where(x => !x.IsInActive)
                 .ToListAsync();
+        }
+
+        public IQueryable GetEntity()
+        {
+            return _context.Set<T>();
+        }
+
+        public  IQueryable<T> GetEntityWithSpec(ISpecification<T> specification = null)
+        {
+           return ApplySpec(specification);
         }
 
         public async Task<T> GetByIdAsync(Guid id)
@@ -75,10 +95,9 @@ namespace Suatra.Infrastructure.Persistence.Repositories
             return await ApplySpec(specification).CountAsync();
         }
 
-        public async Task<int> GetMaxEntity(Expression<Func<T, int>> expression)
+        public  int GetMaxRecord(Func<T, int> selector)
         {
-           var results = await   _context.Set<T>().Select(expression).ToListAsync();
-           return results.DefaultIfEmpty(0).Max();
+            return _context.Set<T>().Max(selector);
         }
         
         public bool GetAny(Expression<Func<T, bool>> expression)

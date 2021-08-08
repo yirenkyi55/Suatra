@@ -9,7 +9,7 @@ namespace Suatra.Domain.Entities
     {
         public User()
         {
-            CourseAuthors = new HashSet<CourseAuthor>();
+            Courses = new HashSet<Course>();
         }
         public string FirstName { get; set; }
 
@@ -27,7 +27,7 @@ namespace Suatra.Domain.Entities
 
         public DateTime RefreshTokenExpiry { get; set; }
 
-        public virtual ICollection<CourseAuthor> CourseAuthors { get; set; }
+        public virtual  ICollection<Course> Courses { get; set; }
 
         public bool IsInActive { get; set; }
     }

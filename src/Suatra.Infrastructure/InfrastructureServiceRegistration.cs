@@ -1,9 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NETCore.MailKit.Extensions;
+using NETCore.MailKit.Infrastructure.Internal;
 using Suatra.Application.Common.Contracts.Persistence;
+using Suatra.Application.Common.Contracts.Services;
 using Suatra.Infrastructure.Persistence;
 using Suatra.Infrastructure.Persistence.Repositories;
+using Suatra.Infrastructure.Services;
 
 namespace Suatra.Infrastructure
 {
@@ -19,6 +23,19 @@ namespace Suatra.Infrastructure
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<IDatabaseTransaction, DatabaseTransaction>();
+
+            // Register mailkit as a service
+            services.AddMailKit(option =>
+            {
+                option.UseMailKit(configuration.GetSection("Email").Get<MailKitOptions>());
+            });
+            
+            services.AddTransient<ITokenService, TokenService>();
+            services.AddTransient<ILoggedInUserService, LoggedInUserService>();
+            services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<IMailService, MailService>();
+            services.AddTransient<ISettingService, SettingService>();
+            
 
             return services;
         }

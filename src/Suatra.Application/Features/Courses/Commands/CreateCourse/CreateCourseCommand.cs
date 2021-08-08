@@ -33,7 +33,7 @@ namespace Suatra.Application.Features.Courses.Commands.CreateCourse
             courseEntity.CourseStatus = CourseStatus.InProgress;
 
             // Create the course, using the repository
-            var course = await _courseRepository.AddAsync(courseEntity);
+            var course =  _courseRepository.Add(courseEntity);
             await _courseRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
             // Return a course response Dto from the course

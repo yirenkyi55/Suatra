@@ -20,6 +20,9 @@ namespace Suatra.Infrastructure.Persistence.Configurations
             builder.HasOne(x => x.Topic).
                 WithMany(t => t.Courses)
                 .HasForeignKey(x => x.TopicId);
+            builder.HasOne(c => c.Author)
+                .WithMany(a => a.Courses)
+                .HasForeignKey(c => c.AuthorId);
 
         }
     }

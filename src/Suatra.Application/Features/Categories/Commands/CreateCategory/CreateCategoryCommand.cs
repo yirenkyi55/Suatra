@@ -28,7 +28,7 @@ namespace Suatra.Application.Features.Categories.Commands.CreateCategory
         {
             var category = _mapper.Map<Category>(request.CreateCategoryRequest);
 
-            await _categoryRepository.AddAsync(category);
+             _categoryRepository.Add(category);
             await _categoryRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 
             return _mapper.Map<CategoryResponse>(category);

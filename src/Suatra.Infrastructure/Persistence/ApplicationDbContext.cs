@@ -19,8 +19,6 @@ namespace Suatra.Infrastructure.Persistence
 
         public DbSet<Course> Courses { get; set; }
 
-        public DbSet<CourseAuthor> CourseAuthors { get; set; }
-
         public DbSet<CourseSection> CourseSections { get; set; }
 
         public DbSet<SectionContent> SectionContents { get; set; }

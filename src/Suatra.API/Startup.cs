@@ -23,10 +23,11 @@ namespace Suatra.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationServices();
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.AddInfrastructure(Configuration);
             services.AddVersioningServices();
             services.AddSwaggerServices();
+            services.AddIdentityServices(Configuration);
 
         }
 
@@ -41,6 +42,7 @@ namespace Suatra.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwaggerDocumentation(env, provider);

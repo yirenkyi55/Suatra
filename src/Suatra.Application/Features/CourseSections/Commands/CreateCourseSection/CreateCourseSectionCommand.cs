@@ -49,10 +49,10 @@ namespace Suatra.Application.Features.CourseSections.Commands.CreateCourseSectio
             var courseSection = _mapper.Map<CourseSection>(request.CreateSectionRequest);
             courseSection.Course = course;
 
-            var maximumOrder = await _courseSectionRepository.GetMaxEntity(x => x.Order);
+            var maximumOrder =  _courseSectionRepository.GetMaxRecord(x => x.Order);
             courseSection.Order = maximumOrder + 1;
 
-           await _courseSectionRepository.AddAsync(courseSection);
+            _courseSectionRepository.Add(courseSection);
 
            await _courseSectionRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
 

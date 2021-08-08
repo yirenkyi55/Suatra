@@ -21,7 +21,6 @@ namespace Suatra.Fixtures
             builder.Seed<Topic>("./SeedData/topics.json");
             builder.Seed<Course>("./SeedData/courses.json");
             builder.Seed<CourseSection>("./SeedData/sections.json");
-            builder.Seed<CourseAuthor>("./SeedData/courseAuthors.json");
 
         }
     }

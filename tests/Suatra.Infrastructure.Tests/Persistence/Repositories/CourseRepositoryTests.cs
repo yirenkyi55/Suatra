@@ -43,7 +43,7 @@ namespace Suatra.Infrastructure.Tests.Persistence.Repositories
 
             };
 
-            await _sut.AddAsync(course);
+             _sut.Add(course);
             await _sut.UnitOfWork.SaveChangesAsync();
 
             await _context.Courses.FirstOrDefaultAsync(c => c.Id == course.Id)
@@ -79,7 +79,7 @@ namespace Suatra.Infrastructure.Tests.Persistence.Repositories
         {
             // Retrieve the course and delete it
             var courseFromDb = await _sut.GetByIdAsync(course.Id);
-            _sut.Delete(courseFromDb);
+            _sut.Remove(courseFromDb);
             await _sut.UnitOfWork.SaveChangesAsync();
 
             _context.Courses.FirstOrDefault(c => c.Id == course.Id).ShouldBeNull();

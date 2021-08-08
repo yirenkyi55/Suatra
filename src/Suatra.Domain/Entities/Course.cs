@@ -10,7 +10,6 @@ namespace Suatra.Domain.Entities
         public Course()
         {
             CourseSections = new HashSet<CourseSection>();
-            CourseAuthors = new HashSet<CourseAuthor>();
         }
 
         public string Name { get; set; }
@@ -42,8 +41,12 @@ namespace Suatra.Domain.Entities
 
         public virtual Topic Topic { get; set; }
 
+        public string AuthorId { get; set; }
+
+        public virtual  User Author { get; set; }
+
         public virtual ICollection<CourseSection> CourseSections { get; set; }
 
-        public virtual ICollection<CourseAuthor> CourseAuthors { get; set; }
+     
     }
 }
