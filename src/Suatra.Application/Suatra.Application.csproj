@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Auth\Queries" />
     <Folder Include="Features\CourseSections\Queries\GetCourseSection" />
     <Folder Include="Features\CourseSections\Queries\GetCourseSections" />
     <Folder Include="Features\CourseSections\Specifications" />

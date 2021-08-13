@@ -56,11 +56,31 @@ namespace Suatra.Infrastructure.Services
                 LinkText = "Activate Account"
             };
 
-            var mailResult =
-                await SendHtmlMailAsync(user.Email,
-                    "Activate your account", htmlMessage.GenerateMailMessage());
+            return await SendHtmlMailAsync(
+                user.Email,
+                    "Activate your account", 
+                htmlMessage.GenerateMailMessage());
 
-            return mailResult;
+        }
+
+        public async Task<bool> SendPasswordResetTokenAsync(string token, User user)
+        {
+            var htmlMessage = new HtmlMessage
+            {
+                Title = "Reset Your Password",
+                Link = $"{_settingService.GetClientUrl()}/auth/reset?token={token}&email={user.Email}",
+                User = user,
+                LinkText = "Reset Password",
+                IncludeLinkButton = true,
+                Message = "you requested to reset your password. <br/> You have 15 minutes to reset your password." +
+                          " <div><p>Please reset your password by clicking on the link below</p></div>"
+            };
+
+            return await SendHtmlMailAsync(
+                user.Email, 
+                "Change your password", 
+                htmlMessage.GenerateMailMessage());
+            
         }
     }
 }
