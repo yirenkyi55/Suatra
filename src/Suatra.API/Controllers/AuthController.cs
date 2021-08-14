@@ -9,6 +9,7 @@ using Suatra.Application.Features.Auth.Dto.Requests;
 using Suatra.Application.Features.Auth.Dto.Responses;
 using Suatra.Application.Features.Auth.Queries.ForgotPassword;
 using Suatra.Application.Features.Auth.Queries.Login;
+using Suatra.Application.Features.Auth.Queries.ResendActivation;
 
 namespace Suatra.API.Controllers
 {
@@ -50,6 +51,13 @@ namespace Suatra.API.Controllers
             var (user,refreshToken) = await Mediator.Send(new ResetPasswordCommand(request));
             SetTokenCookie(refreshToken);
             return Ok(user);
+        }
+
+        [HttpPost("resendActivation")]
+        public async Task<ActionResult> ResendActivation(ResendActivationRequest request)
+        {
+             await Mediator.Send(new ResendActivationQuery(request));
+            return Ok();
         }
 
         private void SetTokenCookie(string token)
