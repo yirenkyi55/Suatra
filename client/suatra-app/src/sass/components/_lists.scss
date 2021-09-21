@@ -1,0 +1,56 @@
+.lists {
+  list-style: none;
+  padding: 1rem 2rem;
+  border: 1px solid var(--colorPrimaryA);
+  border-top-width: 10px;
+  display: block;
+  margin: 0;
+  box-shadow: $box-shadow;
+  border-radius: 0.6rem;
+  margin-top: 1rem;
+
+  li {
+    margin-top: 1rem;
+    border: 1px solid rgb(228, 228, 228);
+    color: var(--colorPrimaryA);
+    padding: 1.4rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      //  transform: scale(1.02);
+      border: 1px solid #ccc;
+      background-color: rgb(245, 245, 245);
+    }
+
+    &:nth-child(odd) {
+      border-left: 5px solid var(--colorPrimaryA);
+    }
+
+    &:nth-child(even) {
+      border-left: 5px solid #ccc;
+    }
+  }
+}
+
+.grab {
+  cursor: grab;
+}
+
+.list-button {
+  background-color: var(--colorPrimaryA);
+  padding: 1rem 1.5rem;
+  color: var(--colorWhiteA);
+  border-radius: 0.5rem;
+  margin-right: 0.2rem;
+
+  &__delete {
+    background-color: #ca386b;
+  }
+
+  &__score {
+    background-color: #10182f;
+  }
+}

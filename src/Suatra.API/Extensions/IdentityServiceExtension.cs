@@ -30,6 +30,7 @@ namespace Suatra.API.Extensions
             builder = new IdentityBuilder(builder.UserType, builder.Services);
             builder.AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             builder.AddSignInManager<SignInManager<User>>();
+   
             
             // Add .Net Core Authentication Services using Jwt
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Application:Key"]));

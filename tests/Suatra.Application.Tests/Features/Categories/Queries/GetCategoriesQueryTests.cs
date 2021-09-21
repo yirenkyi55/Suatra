@@ -6,6 +6,7 @@ using Suatra.Application.Features.Categories.Dto;
 using Suatra.Application.Features.Categories.Queries.GetCategories;
 using Suatra.Domain.Entities;
 using Suatra.Fixtures;
+using Suatra.Fixtures.Factories;
 using Suatra.Infrastructure.Persistence.Repositories;
 using Xunit;
 

@@ -1,0 +1,22 @@
+<button
+  *ngIf="!showToolTip"
+  [class]="btnClass"
+  (click)="onClick($event)"
+  [disabled]="disabled || isLoading"
+>
+  <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isLoading"></i> &nbsp;
+  <ng-content></ng-content>
+</button>
+
+<button
+  *ngIf="showToolTip"
+  [class]="btnClass"
+  (click)="onClick($event)"
+  [disabled]="disabled || isLoading"
+  [nzTooltipTitle]="toolTipLabel"
+  [nzTooltipPlacement]="toolTipPlacement"
+  nz-tooltip
+>
+  <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isLoading"></i> &nbsp;
+  <ng-content select="#toolTipButton"></ng-content>
+</button>

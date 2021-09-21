@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Suatra.Application.Common.Contracts.Services;
 using Suatra.Domain.Entities;
 using Suatra.Fixtures.Extensions;
 using Suatra.Infrastructure.Persistence;
@@ -7,7 +8,8 @@ namespace Suatra.Fixtures
 {
     public class TestApplicationDbContext : ApplicationDbContext
     {
-        public TestApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public TestApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
+            ICurrentUserService currentUserService) : base(options, currentUserService)
         {
 
         }

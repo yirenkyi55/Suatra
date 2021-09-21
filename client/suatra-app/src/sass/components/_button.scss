@@ -1,0 +1,94 @@
+.button {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    padding: 1rem 3rem;
+    display: inline-block;
+    font-size: 1.3rem;
+    //box-shadow: 0 2rem 3rem rgba($color-black, 0.2);
+    font-weight: 300;
+    position: relative;
+    transition: all 0.2s;
+    border-radius: 0.5rem;
+    font-style: inherit;
+    margin: 0.5rem;
+    font-size: 1.6rem;
+    font-family: "Handlee", cursive;
+
+    //for buttons
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10rem;
+  }
+
+  &-block {
+    width: 100%;
+  }
+
+  &:active,
+  &:hover {
+    transform: translateY(-0.3rem);
+    outline: none;
+    color: #ccc;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: #000;
+  }
+
+  &-rounded {
+    border-radius: 2rem !important;
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+  }
+
+  &-large {
+    padding: 1.5rem 3rem !important;
+    font-size: 1.8rem !important;
+  }
+
+  &-dark {
+    background-color: var(--colorSecondaryA);
+    color: var(--colorSecondaryA);
+  }
+
+  &-inverse {
+    background-color: transparent;
+    border: 1px solid var(--colorPrimaryA);
+
+    &:hover {
+      color: var(--colorWhiteA);
+      background: $primary-linear-gradient;
+    }
+  }
+
+  &-cancel {
+    box-shadow: 0 0.1rem 0.1rem rgba(#000, 0.3);
+    border: 1px solid transparent;
+    // background-image: linear-gradient(#eee, #ddd);
+    background: linear-gradient(
+      to right bottom,
+      rgba(#eee, 0.8),
+      rgba(#ddd, 0.8)
+    );
+    color: black;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  &-primary {
+    color: var(--colorWhiteA);
+    background: $primary-linear-gradient;
+  }
+
+  &-outline-pink {
+    border: 1px solid var(--colorPrimaryA);
+  }
+}

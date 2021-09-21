@@ -1,0 +1,37 @@
+<nz-modal
+  nzWrapClassName="vertical-center-modal"
+  [(nzVisible)]="visible"
+  [nzTitle]="title"
+  [nzOkLoading]="okLoading"
+  [nzOkText]="okText"
+  [nzCancelText]="cancelText"
+  [nzOkDisabled]="okDisabled"
+  [nzCancelDisabled]="cancelDisabled"
+  [nzWidth]="width || '52rem'"
+  style="height: 500px !important"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <div *nzModalContent>
+    <ng-content></ng-content>
+  </div>
+
+  <div *nzModalFooter>
+    <button
+      class="button button-cancel"
+      *ngIf="showCancelButton"
+      (click)="handleCancel()"
+    >
+      {{ cancelText }}
+    </button>
+    <app-button
+      btnClass="button button-primary"
+      *ngIf="showOkButton"
+      (btnClick)="handleOk()"
+      [disabled]="okDisabled"
+      [isLoading]="okLoading"
+      >{{ okText }}</app-button
+    >
+    <ng-content select="footer"></ng-content>
+  </div>
+</nz-modal>

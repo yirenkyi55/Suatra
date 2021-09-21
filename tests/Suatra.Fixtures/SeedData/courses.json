@@ -6,6 +6,7 @@
     "Description": "Join the most comprehensive, popular and bestselling Angular course on Udemy and benefit not just from a proven course concept but from a huge community as well! ",
     "Expectations": "Develop modern, complex, responsive and scalable web applications with Angular 12, Fully understand",
     "IntendedAudience": "Beginners",
+    "Requirements": "You need a laptop and an editor",
     "TopicId": "1e7dc72f-3336-4b5d-b429-b68be7e26c69",
     "AuthorId": "60a33224-d891-4a64-ba34-9c21c39f91a1",
     "CourseLevel": 0
@@ -18,6 +19,7 @@
     "Expectations": "Students are expected to know the niggty-gritty about the framework at the end of this course",
     "IntendedAudience": "All students willing to learn the .Net core framework",
     "TopicId": "1e7dc72f-3336-4b5d-b429-b68be7e26c69",
+    "Requirements": "You need a laptop and an editor",
     "AuthorId": "60a33224-d891-4a64-ba34-9c21c39f91a1",
     "CourseLevel": 1
   },
@@ -29,6 +31,7 @@
     "Expectations": "Students will learn well how to save for the future and build their career as well",
     "IntendedAudience": "Students willing to be billionaires in future",
     "TopicId": "627de553-9461-4a28-9ad0-bb32c86e74a9",
+    "Requirements": "You need a laptop and an editor",
     "AuthorId": "60a33224-d891-4a64-ba34-9c21c39f91a1",
     "CourseLevel": 1
   },
@@ -40,6 +43,7 @@
     "Expectations": "Students are expected to all about the AutoCad Software",
     "IntendedAudience": "Development students willing to learn paracticals and the use of AutoCAd",
     "TopicId": "0304ecb1-6ff0-491e-b617-d31f80bf8024",
+    "Requirements": "You need a laptop and an editor",
     "AuthorId": "4bdb9f04-f347-45e1-ad4c-364e65ac0a45",
     "CourseLevel": 0
   },
@@ -51,6 +55,7 @@
     "Expectations": "Students are expected to know how to use basic excel in their day-to-day activities and master the excel environment",
     "IntendedAudience": "All students willing to learn the Microsoft Excel",
     "TopicId": "f618c2ad-35c7-4dd2-85d8-17bcdd42e862",
+    "Requirements": "You need a laptop and an editor",
     "AuthorId": "4bdb9f04-f347-45e1-ad4c-364e65ac0a45",
     "CourseLevel": 2
   }

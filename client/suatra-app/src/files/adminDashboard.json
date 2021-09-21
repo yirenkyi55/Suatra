@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Uploads",
+    "icon": "file-excel",
+    "route": "admin/uploads"
+  },
+  {
+    "title": "Settings",
+    "icon": "apartment",
+    "children": [
+      {
+        "title": "Sub Categories",
+        "route": "admin/sub-categories"
+
+      },
+      {
+        "title": "Sources",
+        "route": "admin/sources"
+      },
+      {
+        "title": "Logics",
+        "route": "admin/logics"
+      }
+    ]
+  },
+  {
+    "title": "Reports",
+    "icon": "file-text",
+    "route": "admin/Reports"
+  },
+  {
+    "title": "Users",
+    "icon": "usergroup-add",
+    "children": [
+      {
+        "title": "Users",
+        "route": "admin/users"
+      }
+    ]
+  }
+]

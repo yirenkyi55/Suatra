@@ -1,0 +1,26 @@
+nz-sider {
+  padding-top: 5rem;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  z-index: 10;
+}
+
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+nz-menu-item:active {
+  outline: none;
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+nz-content {
+  margin: 24px 16px 0;
+  overflow: initial;
+}

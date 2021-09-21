@@ -35,7 +35,7 @@ namespace Suatra.Infrastructure
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<IMailService, MailService>();
             services.AddTransient<ISettingService, SettingService>();
-            
+            services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
             return services;
         }

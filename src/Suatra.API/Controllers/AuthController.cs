@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Suatra.Application.Features.Auth.Commands.ActivateAccount;
@@ -17,6 +18,7 @@ namespace Suatra.API.Controllers
     public class AuthController: BaseController
     {
         [HttpPost("account")]
+        [AllowAnonymous]
         public async Task<ActionResult> CreateAccount(CreateAccountRequest request)
         {
              await Mediator.Send(new CreateAccountCommand(request));
@@ -24,6 +26,7 @@ namespace Suatra.API.Controllers
         }
 
         [HttpPost("activate")]
+        [AllowAnonymous]
         public async Task<ActionResult> ActivateAccount(ActivateAccountRequest request)
         {
             await Mediator.Send(new ActivateAccountCommand(request));
@@ -31,6 +34,7 @@ namespace Suatra.API.Controllers
         }
 
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<ActionResult<AuthUserResponse>> Login(LoginRequest request)
         {
             var (userResponse, refreshToken) = await Mediator.Send(new LoginQuery(request));
@@ -39,6 +43,7 @@ namespace Suatra.API.Controllers
         }
 
         [HttpPost("forgotPassword")]
+        [AllowAnonymous]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordRequest request)
         {
             var result = await Mediator.Send(new ForgotPasswordQuery(request));
@@ -46,6 +51,7 @@ namespace Suatra.API.Controllers
         }
         
         [HttpPost("resetPassword")]
+        [AllowAnonymous]
         public async Task<ActionResult<AuthUserResponse>> ResetPassword(ResetPasswordRequest request)
         {
             var (user,refreshToken) = await Mediator.Send(new ResetPasswordCommand(request));
@@ -54,6 +60,7 @@ namespace Suatra.API.Controllers
         }
 
         [HttpPost("resendActivation")]
+        [AllowAnonymous]
         public async Task<ActionResult> ResendActivation(ResendActivationRequest request)
         {
              await Mediator.Send(new ResendActivationQuery(request));

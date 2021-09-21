@@ -1,0 +1,19 @@
+<div class="search">
+  <input
+    type="text"
+    class="search__input"
+    [(ngModel)]="searchWord"
+    placeholder="{{ placeholder }}"
+    (keyup.enter)="emitSearchEvent()"
+    (input)="onSearchChange($event.target.value)"
+  />
+  <button class="search__button" (click)="emitSearchEvent()" *ngIf="clear">
+    <span class="search__icon">
+      <i nz-icon nzType="search" nzTheme="outline"></i>
+    </span>
+  </button>
+
+  <button class="search__button" (click)="emitClearEvent()" *ngIf="!clear">
+    <i nz-icon nzType="close" nzTheme="outline"></i>
+  </button>
+</div>

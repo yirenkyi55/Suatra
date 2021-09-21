@@ -1,0 +1,24 @@
+<div class="upload__controls">
+  <img [src]="imageToDisplay" *ngIf="imageToDisplay" class="upload__image" />
+  <div class="upload">
+    <div>
+      <nz-upload
+        [(nzFileList)]="fileList"
+        [nzBeforeUpload]="beforeUpload"
+        [nzMultiple]="multiUpload"
+        (nzChange)="onChange($event)"
+      >
+        <button nz-button class="upload-button">
+        Upload
+        </button>
+      </nz-upload>
+      <app-button
+        [disabled]="fileList.length == 0"
+        (buttonClick)="handleUpload()"
+        *ngIf="showUploadButton"
+      >
+        <i nz-icon nzType="cloud-upload" nzTheme="outline"></i>
+      </app-button>
+    </div>
+  </div>
+</div>

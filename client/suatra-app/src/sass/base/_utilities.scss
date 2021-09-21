@@ -1,0 +1,43 @@
+.shadow {
+  box-shadow: 0 1rem 2rem rgba(#000, 0.1) !important;
+}
+
+.margin-top-small {
+  margin-top: 2rem !important;
+}
+
+.mgt {
+  margin-top: 2rem !important;
+}
+
+.color-primary {
+  color: var(--colorPrimaryA);
+}
+
+.movesInLeft {
+  animation: movesInLeft 1s ease-in;
+}
+
+.movesInRight {
+  animation: movesInRight 1s ease-in;
+}
+
+.container__center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  @include position_center();
+}
+
+text {
+  font-size: 1.6rem;
+}
+
+.right-items {
+  display: flex;
+  justify-content: end;
+}

@@ -6,6 +6,7 @@ using Suatra.Infrastructure.Persistence.Repositories;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Suatra.Fixtures.Factories;
 using Xunit;
 
 namespace Suatra.Infrastructure.Tests.Persistence.Repositories
