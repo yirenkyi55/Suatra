@@ -1,0 +1,44 @@
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
+  background: var(--colorPrimaryA);
+  border-color: var(--colorPrimaryA);
+}
+
+.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
+  color: var(--colorPrimaryA);
+}
+
+.ant-steps-item-finish .ant-steps-item-icon {
+  border-color: var(--colorPrimaryA);
+}
+
+.ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title::after {
+  background-color: var(--colorPrimaryA);
+}
+
+.ant-steps-item-title {
+  color: var(--colorPrimaryA) !important;
+}
+
+.ant-table-thead > tr > th {
+  background-color: var(--colorPrimaryA);
+  color: #fff;
+}
+
+.ant-table .ant-table-body {
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0.1rem rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--colorPrimaryA);
+    outline: 1px solid var(--colorPrimaryA);
+  }
+}

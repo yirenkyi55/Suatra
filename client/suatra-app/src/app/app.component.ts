@@ -1,4 +1,4 @@
-import { DashboardMenu } from 'src/app/core/models';
+import { DashboardMenu, UserModel } from 'src/app/core/models';
 import { Component, OnDestroy } from '@angular/core';
 import * as data from 'src/files/adminDashboard.json';
 import { Store } from '@ngrx/store';
@@ -16,14 +16,16 @@ import * as fromAppStore from './core/store';
 export class AppComponent implements OnDestroy {
   dashboardMenuItems: DashboardMenu[] = data.default;
   subs = new SubSink();
+  currentUser: UserModel;
 
   constructor(
-    private store: Store<fromAuthStore.AuthenticationState>,
+    private authStore: Store<fromAuthStore.AuthenticationState>,
     private notificationService: NotificationService,
     private appStore: Store<fromAppStore.ApplicationState>
   ) {}
 
   ngOnInit() {
+    // Create notification
     this.subs.sink = this.appStore
       .select(fromAppStore.selectNotification)
       .subscribe((response) => {
@@ -34,9 +36,18 @@ export class AppComponent implements OnDestroy {
             response.message
           );
       });
+
+    // Assign current user from auth store
+    this.subs.sink = this.authStore
+      .select(fromAuthStore.selectCurrentUser)
+      .subscribe((user) => {
+        this.currentUser = user;
+      });
   }
 
-  onLogOut(): void {}
+  onLogOut(): void {
+    this.authStore.dispatch(fromAuthStore.Logout());
+  }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();

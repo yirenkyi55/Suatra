@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+
 using FluentValidation;
 using Suatra.Application.Common.Contracts.Persistence;
 using Suatra.Application.Features.Categories.Specifications;
@@ -9,7 +10,7 @@ using Suatra.Domain.Entities;
 
 namespace Suatra.Application.Features.Topics.Dto.Requests.Validators
 {
-    public class CreateTopicRequestValidator: AbstractValidator<CreateTopicRequest>
+    public class CreateTopicRequestValidator : AbstractValidator<CreateTopicRequest>
     {
         private readonly IGenericRepository<Category> _categoryRepository;
 
@@ -28,8 +29,13 @@ namespace Suatra.Application.Features.Topics.Dto.Requests.Validators
             string topicName, CancellationToken arg3)
         {
             var spec = new CategoryWithTopicSpecification(request.CategoryId);
-            
+
             var category = await _categoryRepository.GetEntityWithSpecAsync(spec);
+
+            if (category is null)
+            {
+                return true;
+            }
 
             var topic = category.Topics.FirstOrDefault(t => t.Name.ToLower() == topicName.ToLower());
 
@@ -38,7 +44,7 @@ namespace Suatra.Application.Features.Topics.Dto.Requests.Validators
 
         private async Task<bool> CategoryExists(Guid categoryId, CancellationToken cancellationToken)
         {
-            var category =await _categoryRepository.GetByIdAsync(categoryId);
+            var category = await _categoryRepository.GetByIdAsync(categoryId);
             return category != null;
         }
     }

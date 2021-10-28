@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserGuard } from '../core/guards';
 
 const routes: Routes = [
   {
     path: 'auth',
+    canActivate: [UserGuard],
     children: [
       {
         path: '',
@@ -25,6 +27,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./forgot-password/forgot-password.module').then(
             (m) => m.ForgotPasswordModule
+          ),
+      },
+      {
+        path: 'activate',
+        loadChildren: () =>
+          import('./account-activate/account-activate.module').then(
+            (m) => m.AccountActivateModule
           ),
       },
     ],

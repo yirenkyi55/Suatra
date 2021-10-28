@@ -1,8 +1,8 @@
 [
   {
-    "title": "Uploads",
+    "title": "Courses",
     "icon": "file-excel",
-    "route": "admin/uploads"
+    "route": "tutor/courses"
   },
   {
     "title": "Settings",

@@ -7,6 +7,11 @@ const routes: Routes = [
     redirectTo: 'auth',
     pathMatch: 'full',
   },
+  {
+    path: 'tutor',
+    loadChildren: () =>
+      import('./tutor/tutor.module').then((m) => m.TutorModule),
+  },
 ];
 
 @NgModule({

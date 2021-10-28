@@ -24,3 +24,8 @@ export interface UserModel {
   accessToken: string;
   roles: string[];
 }
+
+export interface ActivateAccountModel {
+  email: string;
+  token: string;
+}

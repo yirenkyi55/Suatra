@@ -27,6 +27,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzStepsModule } from 'ng-zorro-antd/steps';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { ModalComponent } from './components/modal/modal.component';
@@ -40,6 +42,7 @@ import { ListComponent } from './components/list/list.component';
 import { TextAreaComponent } from './components/text-area/text-area.component';
 import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { ToggleDisplayPipe } from './pipes/toggle-display.pipe';
 
 const modules = [
   CommonModule,
@@ -71,6 +74,8 @@ const modules = [
   FontAwesomeModule,
   FormsModule,
   ReactiveFormsModule,
+  NzNotificationModule,
+  NzStepsModule,
 ];
 
 const declarations = [
@@ -89,8 +94,8 @@ const declarations = [
 ];
 
 @NgModule({
-  declarations: [...declarations],
+  declarations: [...declarations, ToggleDisplayPipe],
   imports: [...modules],
-  exports: [...modules, ...declarations],
+  exports: [...modules, ...declarations, ToggleDisplayPipe],
 })
 export class SharedModule {}

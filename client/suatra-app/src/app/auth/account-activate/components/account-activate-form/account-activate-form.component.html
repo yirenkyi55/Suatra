@@ -1,0 +1,18 @@
+<app-auth-form>
+    <ng-container id="message">
+        <h2>A Step Further</h2>
+        <p>Activating your account ensures we are dealing with the right person.
+            Click on the button to activate
+            account!
+        </p>
+    </ng-container>
+    <ng-container id="form">
+        <div class="activate-form">
+            <app-button (btnClick)="onActivateAccount()" [isLoading]="loading">
+                Activate Account
+                <i nz-icon nzType="check" nzTheme="outline"></i>
+            </app-button>
+        </div>
+
+    </ng-container>
+</app-auth-form>

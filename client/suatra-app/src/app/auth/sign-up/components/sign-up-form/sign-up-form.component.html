@@ -2,7 +2,9 @@
     <ng-container id="message">
         <h2>Hello, Friend!</h2>
         <p>You can start an amazing journey and have learning fun with us</p>
-        <button class="button button-outline button-inverse" routerLink="/auth/sign-in">Sign In</button>
+        <button class="button button-outline button-inverse" routerLink="/auth/sign-in">
+            <fa-icon [icon]="faSignIn"></fa-icon> Sign In
+        </button>
     </ng-container>
     <ng-container id="form">
         <h2>Sign Up to Journey</h2>
@@ -35,7 +37,9 @@
             </span>
 
             <div class="right-items">
-                <app-button [disabled]="signUpForm.invalid" [isLoading]="loading">Register</app-button>
+                <app-button [disabled]="signUpForm.invalid" [isLoading]="loading">
+                    <fa-icon [icon]="faRegistered"></fa-icon> Register
+                </app-button>
             </div>
         </form>
     </ng-container>

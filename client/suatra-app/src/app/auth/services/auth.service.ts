@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
+  ActivateAccountModel,
   LoginRequestModel,
   RegisterRequestModel,
   UserModel,
@@ -22,5 +23,13 @@ export class AuthService {
 
   login(request: LoginRequestModel): Observable<UserModel> {
     return this.http.post<UserModel>(`${this.baseUrl}/login`, request);
+  }
+
+  activate(request: ActivateAccountModel): Observable<any> {
+    return this.http.post(`${this.baseUrl}/activate`, request);
+  }
+
+  logOut(): void {
+    localStorage.removeItem('authState');
   }
 }

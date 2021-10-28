@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterRequestModel } from 'src/app/core/models';
+import { faSignInAlt, faRegistered } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -11,6 +12,8 @@ export class SignUpFormComponent implements OnInit {
   signUpForm: FormGroup;
   @Input() loading: boolean;
   @Output() signUp = new EventEmitter<RegisterRequestModel>();
+  faSignIn = faSignInAlt;
+  faRegistered = faRegistered;
 
   constructor(private fb: FormBuilder) {}
 

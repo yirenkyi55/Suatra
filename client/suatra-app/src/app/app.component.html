@@ -1,11 +1,11 @@
-<!-- <ng-container>
+<ng-container *ngIf="currentUser">
   <app-dashboard [dashboardMenus]="dashboardMenuItems" (logout)="onLogOut()">
-    <ng-container *ngTemplateOutlet="routerTemplate"></ng-container> 
+    <ng-container *ngTemplateOutlet="routerTemplate"></ng-container>
   </app-dashboard>
-</ng-container> -->
+</ng-container>
 
-<ng-container>
-  <ng-container *ngTemplateOutlet="routerTemplate"></ng-container> 
+<ng-container *ngIf="!currentUser">
+  <ng-container *ngTemplateOutlet="routerTemplate"></ng-container>
 </ng-container>
 
 <ng-template #routerTemplate>

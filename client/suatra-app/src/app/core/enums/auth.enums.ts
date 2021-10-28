@@ -1,4 +1,4 @@
 export enum DashboardTypes {
-  Guest,
+  User,
   Admin,
 }

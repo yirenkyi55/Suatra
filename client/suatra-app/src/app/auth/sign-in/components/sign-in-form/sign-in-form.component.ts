@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { faSignInAlt, faRegistered } from '@fortawesome/free-solid-svg-icons';
+import { LoginRequestModel } from 'src/app/core/models';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -8,6 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignInFormComponent implements OnInit {
   signInForm: FormGroup;
+  faSignIn = faSignInAlt;
+  faRegister = faRegistered;
+  @Input() loading: boolean;
+  @Output() login = new EventEmitter<LoginRequestModel>();
 
   constructor(private fb: FormBuilder) {}
 
@@ -22,5 +28,11 @@ export class SignInFormComponent implements OnInit {
       ],
       password: ['', [Validators.required]],
     });
+  }
+
+  submitForm(): void {
+    if (this.signInForm.valid) {
+      this.login.emit(this.signInForm.value);
+    }
   }
 }

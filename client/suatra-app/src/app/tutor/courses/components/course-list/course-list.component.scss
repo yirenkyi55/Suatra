@@ -1,0 +1,12 @@
+.container__header {
+  display: flex;
+  align-items: center;
+}
+
+.search-box {
+  width: 80%;
+}
+
+.search-box > * {
+  flex: 1;
+}

@@ -5,12 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './store';
+import { reducers, effects } from './store';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/dashboard/header/header.component';
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 import { SharedModule } from '../shared/shared.module';
+import { EffectsModule } from '@ngrx/effects';
 
 const modules = [
   CommonModule,
@@ -26,6 +27,7 @@ const modules = [
     ...modules,
     SharedModule,
     StoreModule.forFeature('applicationState', reducers),
+    EffectsModule.forFeature(effects),
   ],
   exports: [...modules, DashboardComponent, HeaderComponent, SidebarComponent],
 })

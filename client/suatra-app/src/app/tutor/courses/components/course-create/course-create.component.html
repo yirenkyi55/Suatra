@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card__body">
+        <nz-steps [nzCurrent]="current">
+            <nz-step nzTitle="Finished"></nz-step>
+            <nz-step nzTitle="In Progress"></nz-step>
+            <nz-step nzTitle="Waiting"></nz-step>
+        </nz-steps>
+        <div class="steps-content">
+            <div [ngStyle]="current | toggleDisplay:0">
+                <h2>Select Category</h2>
+            </div>
+            <div [ngStyle]="current | toggleDisplay:1">
+                <h2>Select Topic</h2>
+            </div>
+            <div [ngStyle]="current | toggleDisplay:2">
+                <h2>Done</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card__footer">
+        <div class="card__footer-left">
+        </div>
+        <div class="steps-action card__footer-right">
+            <button class="button button-primary" (click)="pre()" *ngIf="current > 0">
+                <span>Previous</span>
+            </button>
+            <button class="button button-primary" (click)="next()" *ngIf="current < 2">
+                <span>Next</span>
+            </button>
+            <button class="button button-primary" (click)="done()" *ngIf="current === 2">
+                <span>Done</span>
+            </button>
+        </div>
+    </div>
+</div>

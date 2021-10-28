@@ -2,11 +2,13 @@
     <ng-container id="message">
         <h2>Welcome Back!</h2>
         <p>There is more to learn. It has been interesting to have you on board.</p>
-        <button class="button button-outline button-inverse" routerLink="/auth/sign-up">Sign Up</button>
+        <button class="button button-outline button-inverse" routerLink="/auth/sign-up">
+            <fa-icon [icon]="faRegister"></fa-icon> Sign Up
+        </button>
     </ng-container>
     <ng-container id="form">
         <h2>Sign Up to Journey</h2>
-        <form [formGroup]="signInForm">
+        <form [formGroup]="signInForm" (ngSubmit)="submitForm()">
             <app-input formControlName="email" patternMessage="Invalid Email Address"
                 placeholder="Enter your email address" label="Email Address"></app-input>
 
@@ -14,7 +16,9 @@
             </app-input>
 
             <div class="right-items">
-                <app-button [disabled]="signInForm.invalid">Login</app-button>
+                <app-button [disabled]="signInForm.invalid" [isLoading]="loading">
+                    <fa-icon [icon]="faSignIn"></fa-icon> Login
+                </app-button>
             </div>
         </form>
     </ng-container>
