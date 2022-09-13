@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { faSignInAlt, faRegistered } from '@fortawesome/free-solid-svg-icons';
 import { LoginRequestModel } from 'src/app/core/models';
 
@@ -9,13 +9,13 @@ import { LoginRequestModel } from 'src/app/core/models';
   styleUrls: ['./sign-in-form.component.scss'],
 })
 export class SignInFormComponent implements OnInit {
-  signInForm: FormGroup;
+  signInForm: UntypedFormGroup;
   faSignIn = faSignInAlt;
   faRegister = faRegistered;
   @Input() loading: boolean;
   @Output() login = new EventEmitter<LoginRequestModel>();
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: UntypedFormBuilder) {}
 
   ngOnInit(): void {
     this.signInForm = this.fb.group({

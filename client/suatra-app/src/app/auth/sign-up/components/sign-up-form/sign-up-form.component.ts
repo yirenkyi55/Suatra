@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { RegisterRequestModel } from 'src/app/core/models';
 import { faSignInAlt, faRegistered } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,13 +9,13 @@ import { faSignInAlt, faRegistered } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./sign-up-form.component.scss'],
 })
 export class SignUpFormComponent implements OnInit {
-  signUpForm: FormGroup;
+  signUpForm: UntypedFormGroup;
   @Input() loading: boolean;
   @Output() signUp = new EventEmitter<RegisterRequestModel>();
   faSignIn = faSignInAlt;
   faRegistered = faRegistered;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: UntypedFormBuilder) {}
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group(
@@ -37,7 +37,7 @@ export class SignUpFormComponent implements OnInit {
     );
   }
 
-  checkPasswords(group: FormGroup) {
+  checkPasswords(group: UntypedFormGroup) {
     const password = group.get('password').value;
     const confirmPassword = group.get('confirmPassword').value;
     return password === confirmPassword ? null : { notEqual: true };
