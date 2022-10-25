@@ -52,10 +52,16 @@ namespace Suatra.API.Extensions
         }
 
         public static IApplicationBuilder UseSwaggerDocumentation(
-            this IApplicationBuilder app,
-            IWebHostEnvironment env,
-            IApiVersionDescriptionProvider provider)
+            this IApplicationBuilder app)
         {
+            using var scope = app.ApplicationServices.CreateScope();
+            var services = scope.ServiceProvider;
+
+            var env = services
+                .GetRequiredService<IWebHostEnvironment>();
+
+            var provider = services.GetRequiredService<IApiVersionDescriptionProvider>();
+
             if (env.IsDevelopment())
             {
                 app.UseSwagger();

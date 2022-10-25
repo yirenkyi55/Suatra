@@ -21,14 +21,14 @@ namespace Suatra.Application.Features.Auth.Queries.ForgotPassword
     public class ForgotPasswordQueryHandler : IRequestHandler<ForgotPasswordQuery>
     {
         private readonly IIdentityService _identityService;
-        private readonly IMailService _mailService;
+        private readonly IApplicationMailService _applicationMailService;
 
         public ForgotPasswordQueryHandler(
             IIdentityService identityService,
-            IMailService mailService)
+            IApplicationMailService applicationMailService)
         {
             _identityService = identityService;
-            _mailService = mailService;
+            _applicationMailService = applicationMailService;
         }
         
         public async Task<Unit> Handle(ForgotPasswordQuery request, CancellationToken cancellationToken)
@@ -43,7 +43,7 @@ namespace Suatra.Application.Features.Auth.Queries.ForgotPassword
             var resetToken = await _identityService.GeneratePasswordResetToken(user);
             resetToken = TokenFormatter.EncodeToken(resetToken);
 
-            var result = await _mailService.SendPasswordResetTokenAsync(resetToken, user);
+            var result = await _applicationMailService.SendPasswordResetTokenAsync(resetToken, user);
 
             if (!result)
             {

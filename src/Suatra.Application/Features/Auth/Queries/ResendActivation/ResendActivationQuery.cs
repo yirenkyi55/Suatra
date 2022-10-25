@@ -21,12 +21,12 @@ namespace Suatra.Application.Features.Auth.Queries.ResendActivation
     public class ResendActivationQueryHandler : IRequestHandler<ResendActivationQuery>
     {
         private readonly IIdentityService _identityService;
-        private readonly IMailService _mailService;
+        private readonly IApplicationMailService _applicationMailService;
 
-        public ResendActivationQueryHandler(IIdentityService identityService, IMailService mailService)
+        public ResendActivationQueryHandler(IIdentityService identityService, IApplicationMailService applicationMailService)
         {
             _identityService = identityService;
-            _mailService = mailService;
+            _applicationMailService = applicationMailService;
         }
         
         public async Task<Unit> Handle(ResendActivationQuery request, CancellationToken cancellationToken)
@@ -41,7 +41,7 @@ namespace Suatra.Application.Features.Auth.Queries.ResendActivation
             // Generate and Send an email activation token for the user
             var activationToken = await _identityService.GenerateEmailConfirmationTokenAsync(user);
             activationToken = TokenFormatter.EncodeToken(activationToken);
-            await _mailService.SendActivationTokenAsync(activationToken, user);
+            await _applicationMailService.SendActivationTokenAsync(activationToken, user);
             
             return Unit.Value;
         }

@@ -17,13 +17,13 @@ namespace Suatra.Application.Tests.Features.Auth.Commands
     public class CreateAccountCommandTests
     {
         private  IIdentityService _identityService;
-        private readonly IMailService _mailService;
+        private readonly IApplicationMailService _applicationMailService;
         private readonly IMapper _mapper;
         
         public CreateAccountCommandTests()
         {
             _identityService = IdentityServiceMock.GetMock().Object;
-            _mailService = MailServiceMock.GetMock().Object;
+            _applicationMailService = MailServiceMock.GetMock().Object;
             
             var configurationProvider = new MapperConfiguration(cfg =>
             {
@@ -41,7 +41,7 @@ namespace Suatra.Application.Tests.Features.Auth.Commands
                 .ReturnsAsync(() => null);
             _identityService = fakeIdentityService.Object;
             
-            var handler = new CreateAccountCommandHandler(_identityService, _mapper, _mailService);
+            var handler = new CreateAccountCommandHandler(_identityService, _mapper, _applicationMailService);
 
             var request = new CreateAccountRequest
                 {Email = "yirenemma@gmail.com", FirstName = "Emmanuel", LastName = "Yirenkyi", Password = "P@$$w0rd"};
@@ -56,7 +56,7 @@ namespace Suatra.Application.Tests.Features.Auth.Commands
             var request = new CreateAccountRequest
                 {Email = "yirenemma@gmail.com", FirstName = "Emmanuel", LastName = "Yirenkyi", Password = "P@$$w0rd"};
 
-            var handler = new CreateAccountCommandHandler(_identityService, _mapper, _mailService);
+            var handler = new CreateAccountCommandHandler(_identityService, _mapper, _applicationMailService);
             
             Should.Throw<BadRequestException>(async () => await handler.Handle(
                 new CreateAccountCommand(request)  ,

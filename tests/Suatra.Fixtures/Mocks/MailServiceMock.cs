@@ -6,9 +6,9 @@ namespace Suatra.Fixtures.Mocks
 {
     public class MailServiceMock
     {
-        public static Mock<IMailService> GetMock()
+        public static Mock<IApplicationMailService> GetMock()
         {
-            var mailServiceMock = new Mock<IMailService>();
+            var mailServiceMock = new Mock<IApplicationMailService>();
 
             mailServiceMock.Setup(
                     x => x.SendActivationTokenAsync(

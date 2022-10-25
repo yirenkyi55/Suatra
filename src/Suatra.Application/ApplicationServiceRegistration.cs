@@ -1,10 +1,15 @@
-﻿using FluentValidation.AspNetCore;
+﻿using System.Reflection;
+
+using FluentValidation;
+
 using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using Suatra.Application.Features.Categories.Dto.Requests;
-using System.Reflection;
+
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+using Suatra.Application.Common.Configuration;
 using Suatra.Application.Common.Models;
+using Suatra.Application.Features.Categories.Dto.Requests.Validators;
 
 namespace Suatra.Application
 {
@@ -15,20 +20,9 @@ namespace Suatra.Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.Configure<Settings>(configuration.GetSection("Settings"));
+            services.Configure<ClientSettingOptions>(configuration.GetSection(nameof(ClientSettingOptions)));
+            services.AddValidatorsFromAssemblyContaining<CreateCategoryRequestValidator>();
             return services;
-        }
-
-
-        public static IMvcBuilder AddValidation(this IMvcBuilder builder)
-        {
-            builder
-                .AddFluentValidation(c =>
-                {
-                    c.RegisterValidatorsFromAssemblyContaining<CreateCategoryRequest>();
-                }
-              );
-
-            return builder;
         }
     }
 }

@@ -3,7 +3,7 @@ using Suatra.Domain.Entities;
 
 namespace Suatra.Application.Common.Contracts.Services
 {
-    public interface IMailService
+    public interface IApplicationMailService
     {
         Task<bool> SendActivationTokenAsync(string token, User user);
         Task<bool> SendPasswordResetTokenAsync(string token, User user);

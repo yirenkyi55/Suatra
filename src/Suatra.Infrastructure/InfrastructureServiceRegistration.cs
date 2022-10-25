@@ -33,9 +33,12 @@ namespace Suatra.Infrastructure
             services.AddTransient<ITokenService, TokenService>();
             services.AddTransient<ILoggedInUserService, LoggedInUserService>();
             services.AddTransient<IIdentityService, IdentityService>();
-            services.AddTransient<IMailService, MailService>();
+            services.AddTransient<IApplicationMailService, ApplicationMailService>();
             services.AddTransient<ISettingService, SettingService>();
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
+            services.AddTransient<IMailService, MailkitMailService>();
+            services.AddTransient<ITemplateService, TemplateService>();
+            services.AddTransient<IUrlService, UrlService>();
 
             return services;
         }

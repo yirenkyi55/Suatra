@@ -12,11 +12,11 @@ namespace Suatra.API.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddControllers(options =>
+            services.AddControllersWithViews(options =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
-            }).AddValidation();
+            });
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
