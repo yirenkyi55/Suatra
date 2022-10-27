@@ -1,0 +1,26 @@
+<app-auth-form>
+    <ng-container id="message">
+        <h2>Welcome Back!</h2>
+        <p>There is more to learn. It has been interesting to have you on board.</p>
+        <app-button [inverted]="true" routerLink="/auth/sign-up">
+            <fa-icon [icon]="faRegister"></fa-icon> Sign Up
+        </app-button>
+    </ng-container>
+    <ng-container id="form">
+        <h2>Sign In</h2>
+        <form [formGroup]="signInForm" (ngSubmit)="submit()">
+            <app-input formControlName="email" invalidMessage="Invalid Email Address"
+                placeholder="Enter your email address" label="Email Address"></app-input>
+
+            <app-input type="password" formControlName="password" placeholder="Enter your password" label="Password">
+            </app-input>
+
+            <a class="forgot-password" routerLink="/auth/forgot-password">Forgot Password?</a>
+
+            <app-button [disabled]="signInForm.invalid" [isLoading]="loading">
+                <fa-icon [icon]="faSignIn"></fa-icon> Login
+            </app-button>
+
+        </form>
+    </ng-container>
+</app-auth-form>

@@ -1,0 +1,114 @@
+.auth {
+  &__container {
+    @include position-center();
+    width: 90vw;
+    max-height: 100vh;
+    margin: 1rem 0;
+
+    @include respond(large-phone) {
+      width: 70%;
+    }
+
+    @include respond(tab-port) {
+      width: 80%;
+    }
+
+    @include respond(tab-land) {
+      width: 50%;
+    }
+  }
+
+  &__wrapper {
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-md;
+    min-height: 60vh;
+    @include respond(tab-port) {
+      display: flex;
+      min-height: 45rem;
+    }
+  }
+
+  &__showcase {
+    border-bottom: 5px solid $color-primary-a;
+    margin-bottom: $size-sm;
+    padding-bottom: $size-sm;
+    font-size: $font-md;
+    text-align: center;
+    background: $color-dark-a;
+    border-top-left-radius: $border-radius-md;
+    border-top-right-radius: $border-radius-md;
+    color: $color-white-a;
+    font-family: "Handlee", cursive;
+    padding: $size-xxs;
+
+    @include respond(tab-port) {
+      border-bottom: none;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: $border-radius-md;
+      border-right: 5px solid $color-primary-a;
+      padding: $size-md;
+      width: 40%;
+      h1,
+      h2 {
+        border-bottom: 0px !important;
+      }
+    }
+
+    h1,
+    h2 {
+      color: $color-white-a;
+      font-size: $font-xl;
+      text-transform: capitalize;
+      border-bottom: 1px solid $color-primary-b;
+      display: inline-block;
+    }
+  }
+
+  &__form {
+    padding: $size-xs;
+    position: relative;
+    h1,
+    h2 {
+      color: $color-primary-a;
+      font-family: "Handlee", cursive;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    @include respond(tab-port) {
+      flex: 1;
+      padding: $size-lg;
+      button {
+        width: auto !important;
+        float: right;
+      }
+    }
+
+    form > .forgot-password {
+      font-family: $font-family-secondary;
+      font-size: $font-md;
+      font-weight: 800;
+      transition: all 0.3s;
+      &:hover {
+        text-decoration: underline;
+        color: $color-error;
+      }
+    }
+
+    .center {
+      @include respond(tab-port) {
+        width: 80%;
+        @include position-center();
+      }
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

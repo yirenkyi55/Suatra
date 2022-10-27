@@ -1,0 +1,84 @@
+.button {
+  &,
+  &:link,
+  &:visited {
+    padding: 1rem 3rem;
+    margin: 0.5rem;
+    display: inline-block;
+    border: none;
+    font-family: "Handlee", cursive;
+    font-weight: 300;
+    font-size: 1.6rem;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    outline: none;
+    color: $color-gray-a;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    background: $disabled-linear-gradient;
+    color: rgb(125, 125, 125);
+  }
+
+  //Different button border-radius sizes
+  &--radius {
+    &-sm {
+      border-radius: $size-sm;
+    }
+    &-md {
+      border-radius: $size-md;
+    }
+    &-lg {
+      border-radius: $size-lg;
+    }
+    &-xl {
+      border-radius: $size-xl;
+    }
+    &-xxl {
+      border-radius: $size-xxl;
+    }
+    &-none {
+      border-radius: none;
+    }
+  }
+
+  //Different Button State
+  &--state {
+    &-primary {
+      background: $primary-linear-gradient;
+      color: $color-white-a;
+    }
+    &-secondary {
+      background: $secondary-linear-gradient;
+      color: $color-white-a;
+    }
+    &-tertiary {
+      background: $tertiary-linear-gradient;
+      color: $color-white-a;
+    }
+  }
+
+  //Inverted buttons
+  &--inverse {
+    background: $color-white-a;
+
+    &-primary {
+      @include button-inverse($color-primary-a, $primary-linear-gradient);
+    }
+
+    &-secondary {
+      @include button-inverse($color-secondary-a, $secondary-linear-gradient);
+    }
+
+    &-tertiary {
+      @include button-inverse($color-tertiary-a, $tertiary-linear-gradient);
+    }
+  }
+}

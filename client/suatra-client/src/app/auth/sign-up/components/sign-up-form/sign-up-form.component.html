@@ -1,0 +1,38 @@
+<app-auth-form>
+    <ng-container id="message">
+        <h2>Hello, Friend!</h2>
+        <p>You can start an amazing journey and have learning fun with us</p>
+        <app-button [inverted]="true" routerLink="/auth/sign-in">
+            <fa-icon [icon]="faSignIn"></fa-icon> Sign In
+        </app-button>
+    </ng-container>
+    <ng-container id="form">
+        <h2>Sign Up to Journey</h2>
+        <form [formGroup]="signUpForm" (ngSubmit)="submitForm()">
+
+            <app-input formControlName="firstName" placeholder="First Name" label="First Name"></app-input>
+            <app-input formControlName="otherName" placeholder="Other Name" label="Other Name"></app-input>
+            <app-input formControlName="lastName" placeholder="Last Name" label="Last Name"></app-input>
+            <app-input formControlName="email" patternMessage="Invalid Email Address"
+                placeholder="Enter your email address" label="Email Address"></app-input>
+            <app-input type="password" formControlName="password" placeholder="Enter your password" label="Password">
+            </app-input>
+            <app-input type="password" formControlName="confirmPassword" placeholder="Confirm your password"
+                label="Confirm Password">
+            </app-input>
+            <span class="error" *ngIf="
+              signUpForm.get('confirmPassword')?.touched &&
+              signUpForm.errors?.mismatch
+            ">
+                <ul>
+                    <li>Passwords Mismatch</li>
+                </ul>
+            </span>
+            <div class="right-items">
+                <app-button [disabled]="signUpForm.invalid" [isLoading]="loading">
+                    <fa-icon [icon]="faRegistered"></fa-icon> Register
+                </app-button>
+            </div>
+        </form>
+    </ng-container>
+</app-auth-form>

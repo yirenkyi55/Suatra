@@ -1,0 +1,70 @@
+@mixin button-inverse($state-color, $gradient-color) {
+  outline: 2px solid $state-color;
+  color: $state-color;
+  background: $color-dark-a;
+
+  &:hover {
+    background: $gradient-color;
+    color: $color-white-a;
+    outline-color: transparent;
+    transform: translateY(0) !important;
+  }
+}
+
+@mixin position-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//Used to provide responsive breakpoint functionality for the application
+@mixin respond($breakpoint) {
+  @if ($breakpoint==small-port) {
+    //328 20.5em todo:500 0.0625* 500
+    @media only screen and (min-width: 31.25em) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint==medium-port) {
+    @media only screen and (min-width: 40.625em) {
+      //650px
+      @content;
+    }
+  }
+
+  @if ($breakpoint==large-phone) {
+    @media only screen and (min-width: 46.56em) {
+      //745px
+      @content;
+    }
+  }
+
+  @if $breakpoint==tab-port {
+    @media only screen and (min-width: 56.25em) {
+      //900px
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port-land {
+    @media only screen and (min-width: 68.3125em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==tab-land {
+    @media only screen and (min-width: 75em) {
+      //1200px
+      @content;
+    }
+  }
+
+  @if $breakpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      //1800px
+      @content;
+    }
+  }
+}
