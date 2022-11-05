@@ -1,0 +1,19 @@
+<nz-header>
+    <span class="item-right" nz-dropdown [nzDropdownMenu]="menu" nzPlacement="bottomCenter">
+        <span>Samuel Akwesi</span>
+        <nz-avatar nzIcon="user" class="icon-item">
+        </nz-avatar>
+    </span>
+
+</nz-header>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+        <li nz-menu-item class="menu-item">
+            <i nz-icon nzType="user" nzTheme="outline"></i> Account
+        </li>
+        <li nz-menu-item class="menu-item" (click)="onLogout()">
+            <i nz-icon nzType="logout" nzTheme="outline"></i> Log Out
+        </li>
+    </ul>
+</nz-dropdown-menu>

@@ -1,0 +1,15 @@
+<app-auth-form>
+    <ng-container id="message">
+        <h2>Hello, Friend!</h2>
+        <p>You can start an amazing journey and have learning fun with us</p>
+        <app-button [inverted]="true" routerLink="/auth/sign-in">
+            <fa-icon [icon]="faSignIn"></fa-icon> Sign In
+        </app-button>
+    </ng-container>
+    <ng-container id="form">
+        <h2>You are almost there!</h2>
+        <h4 class="center">Your Account has been successfully created.
+            An Email has been sent to <span class="email">{{email}}</span>.
+            Please check to activate your account.</h4>
+    </ng-container>
+</app-auth-form>

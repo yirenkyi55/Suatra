@@ -1,0 +1,28 @@
+.svg-sm,
+.svg-md,
+.svg-lg,
+.svg-xl,
+.svg-xxl {
+  text-align: center;
+  @include respond(tab-port) {
+    @include position_center();
+  }
+}
+
+.svg {
+  &-sm > * {
+    @include svg-responsive($size-sm);
+  }
+  &-md > * {
+    @include svg-responsive($size-md);
+  }
+  &-lg > * {
+    @include svg-responsive($size-lg);
+  }
+  &-xl > * {
+    @include svg-responsive($size-xl);
+  }
+  &-xxl > * {
+    @include svg-responsive($size-xxl);
+  }
+}

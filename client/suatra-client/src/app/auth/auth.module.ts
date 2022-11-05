@@ -1,13 +1,20 @@
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { reducers, effects } from './store';
 
 @NgModule({
-  declarations: [AuthFormComponent],
-  imports: [CommonModule, AuthRoutingModule, SharedModule],
-  exports: [AuthFormComponent],
+  declarations: [],
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    SharedModule,
+    StoreModule.forFeature('authState', reducers),
+    EffectsModule.forFeature(effects),
+  ],
 })
 export class AuthModule {}

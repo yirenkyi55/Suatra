@@ -1,0 +1,13 @@
+<nz-layout>
+    <app-sidebar [dashboardMenus]="dashboardMenus" (sidebarCollapse)="onSidebarCollapse($event)">
+        <nz-layout [ngClass]="collapsedClass">
+            <app-header (handleLogout)="onLogout()" [user]="user">
+            </app-header>
+            <nz-content>
+                <div class="inner-content">
+                    <ng-content></ng-content>
+                </div>
+            </nz-content>
+        </nz-layout>
+    </app-sidebar>
+</nz-layout>

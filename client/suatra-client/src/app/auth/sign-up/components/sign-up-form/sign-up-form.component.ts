@@ -17,7 +17,7 @@ export class SignUpFormComponent implements OnInit {
   faSignIn = faSignInAlt;
   faRegistered = faRegistered;
   @Input() loading: boolean;
-  @Output() signup = new EventEmitter<RegisterRequestModel>();
+  @Output() handleSignUp = new EventEmitter<RegisterRequestModel>();
 
   signUpForm = this.fb.group(
     {
@@ -47,7 +47,7 @@ export class SignUpFormComponent implements OnInit {
 
   submitForm(): void {
     if (this.signUpForm.valid) {
-      this.signup.emit(this.signUpForm.value as RegisterRequestModel);
+      this.handleSignUp.emit(this.signUpForm.value as RegisterRequestModel);
     }
   }
 }

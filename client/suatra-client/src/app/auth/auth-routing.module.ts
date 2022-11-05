@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuestGuard } from '../core/guards';
 
 const routes: Routes = [
   {
     path: 'auth',
+    canActivate: [GuestGuard],
     children: [
       {
         path: '',

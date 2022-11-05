@@ -48,11 +48,14 @@ $color-error: rgb(243, 69, 69);
 $color-dark-a: #10182f;
 $color-white-a: #f4f4f4;
 $color-white-b: #f9f9f9;
+$color-white-c: rgb(249, 249, 249);
 $color-gray-a: rgb(234, 234, 234);
 
 //box-shadows
 $shadow-md: 0px 0px 1px rgba(12, 26, 75, 0.24),
   0px 3px 8px -1px rgba(50, 50, 71, 0.05);
+$shadow-lg: 0.1rem 0.1rem 0.1rem 0.1rem rgba(#000, 0.1);
+$shadow-xxl: 0.2rem 0.2rem 0.2rem 0.1rem rgb(0 0 0 / 8%);
 
 //Font sizes
 $font-sm: 1.4rem;

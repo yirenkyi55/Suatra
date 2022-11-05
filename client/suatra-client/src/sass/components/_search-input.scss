@@ -1,0 +1,64 @@
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+
+  margin-right: 2rem;
+
+  &__input {
+    font-size: 1.4rem;
+    border: none;
+    width: 98%;
+    padding: 0.7rem 2rem;
+    transition: all 0.2s;
+    border-radius: 1rem;
+    margin-right: -3.1rem;
+    box-shadow: $shadow-md;
+    height: 4rem;
+    font-family: $font-family-secondary;
+
+    text-align: center;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+    }
+
+    &::-webkit-input-placeholder {
+      //Used for styling input placeholders in safari and chrome
+      font-weight: 100;
+      color: var(--colorPrimaryA);
+    }
+  }
+
+  &__button {
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #fff;
+    padding: 0.7rem;
+    border-top-right-radius: $size-sm;
+    border-bottom-right-radius: $size-sm;
+    transition: all 0.2s ease-in;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $color-white-c;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+    fill: var(--colorPrimaryA);
+    border: none;
+  }
+}

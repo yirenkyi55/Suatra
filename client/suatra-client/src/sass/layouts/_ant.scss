@@ -23,8 +23,14 @@
 }
 
 .ant-table-thead > tr > th {
-  background-color: var(--colorPrimaryA);
-  color: #fff;
+  font-family: $font-family-secondary;
+  background-color: $color-primary-a;
+  font-size: $font-md;
+  color: $color-white-a;
+}
+
+.ant-table-thead > tr {
+  box-shadow: $shadow-xxl;
 }
 
 .ant-table .ant-table-body {
@@ -40,5 +46,71 @@
   &::-webkit-scrollbar-thumb {
     background-color: var(--colorPrimaryA);
     outline: 1px solid var(--colorPrimaryA);
+  }
+}
+
+.ant-layout-sider-zero-width-trigger {
+  background: $color-primary-a;
+  top: 17px;
+  border-radius: 0px;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected,
+.active-link,
+.active-link {
+  background-color: $color-primary-a;
+  color: $color-white-a !important;
+}
+
+.ant-menu-dark.ant-menu-inline .ant-menu-item,
+.ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
+  color: $color-primary-a;
+  font-weight: 600;
+  font-family: $font-family-secondary;
+  font-size: $font-md;
+
+  &:hover {
+    background-color: $color-primary-a;
+    color: $color-white-a;
+  }
+}
+
+.ant-layout-sider-children {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-table-tbody > tr.ant-table-placeholder {
+  height: 50vh !important;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 0 !important;
+}
+
+.ant-table-tbody > tr {
+  border-radius: 10px !important;
+  font-family: $font-family-primary;
+  transition: none !important;
+  &:hover {
+    color: $color-primary-a;
+    cursor: pointer;
+  }
+}
+
+tr:nth-child(odd) {
+  &:hover {
+    background: white !important;
+  }
+}
+
+tr:nth-child(even) {
+  box-shadow: $shadow-xxl;
+  background-color: $color-white-b;
+  border-radius: 10rem;
+
+  &:hover {
+    background: white !important;
   }
 }

@@ -28,6 +28,7 @@
     "@ngrx/store": "^14.3.2",
     "@ngrx/store-devtools": "^14.3.2",
     "ng-zorro-antd": "^14.1.1",
+    "ngrx-store-localstorage": "^14.0.0",
     "rxjs": "~7.5.0",
     "subsink": "^1.0.2",
     "tslib": "^2.3.0",

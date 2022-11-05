@@ -1,13 +1,11 @@
 @mixin button-inverse($state-color, $gradient-color) {
   outline: 2px solid $state-color;
   color: $state-color;
-  background: $color-dark-a;
-
+  background-color: transparent;
   &:hover {
     background: $gradient-color;
     color: $color-white-a;
     outline-color: transparent;
-    transform: translateY(0) !important;
   }
 }
 
@@ -16,6 +14,17 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@mixin svg-responsive($size) {
+  max-width: calc($size * 4);
+  max-height: calc($size * 4);
+  fill: $color-primary-a;
+
+  @include respond(tab-port) {
+    max-width: calc($size * 8);
+    max-height: calc($size * 8);
+  }
 }
 
 //Used to provide responsive breakpoint functionality for the application

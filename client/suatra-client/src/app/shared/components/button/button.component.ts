@@ -12,12 +12,15 @@ export class ButtonComponent implements OnInit {
   @Input() borderRadius = Sizes.Xxl;
   @Input() inverted = false;
   @Input() disabled = false;
+  @Input() size = Sizes.Md;
 
   @Output() handleClick = new EventEmitter<Event>();
 
   get buttonClass(): string {
     let currentClass = `button button--radius-${Sizes[
       this.borderRadius
+    ].toLocaleLowerCase()} button--sizes-${Sizes[
+      this.size
     ].toLocaleLowerCase()}`;
 
     if (this.inverted) {

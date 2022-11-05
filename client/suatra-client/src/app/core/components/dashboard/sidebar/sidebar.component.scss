@@ -1,0 +1,20 @@
+nz-sider {
+  padding-top: 5rem;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  z-index: 999999;
+}
+
+nz-menu-item:active {
+  outline: none;
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+nz-content {
+  margin: 24px 16px 0;
+  overflow: scroll;
+}

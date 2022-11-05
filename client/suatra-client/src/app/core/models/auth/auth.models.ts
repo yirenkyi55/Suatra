@@ -14,3 +14,15 @@ export interface RegisterRequestModel {
 export interface ForgotPasswordRequestModel {
   email: string;
 }
+
+export interface UserModel {
+  id: string;
+  email: string;
+  firstName: string;
+  otherName: string;
+  lastName: string;
+  bio: string;
+  photo: string;
+  accessToken: string;
+  roles: string[];
+}

@@ -8,7 +8,7 @@
     border: none;
     font-family: "Handlee", cursive;
     font-weight: 300;
-    font-size: 1.6rem;
+    font-size: calc(1.4rem + 0.2vw);
     cursor: pointer;
     outline: none;
     text-decoration: none;
@@ -49,6 +49,24 @@
     }
   }
 
+  &--sizes {
+    &-sm {
+      padding: 0.5rem 1.5rem;
+    }
+
+    &-lg {
+      padding: 1.5rem 3rem;
+    }
+    &-xl {
+      padding: 2rem 2.5rem;
+    }
+    &-xxl {
+      padding: 2rem 3rem;
+    }
+    &-none {
+      padding: none;
+    }
+  }
   //Different Button State
   &--state {
     &-primary {

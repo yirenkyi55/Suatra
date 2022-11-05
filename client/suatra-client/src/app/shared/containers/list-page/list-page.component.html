@@ -1,0 +1,28 @@
+<div class="page-header">
+    <div class="page-header__content">
+        <h2>Your Courses</h2>
+        <app-search-item></app-search-item>
+        <app-button>Create New</app-button>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="page-container__body">
+        <div class="browse-content">
+            <div class="browse-content--filter">
+                <h4>Apply Filters</h4>
+                <div class="browse-content--filter__body">
+
+                </div>
+                <div class="browse-content--filter__footer">
+                    <app-button [inverted]="true" [size]="buttonSizes.Sm" [borderRadius]="buttonSizes.None">Clear
+                    </app-button>
+                    <app-button [size]="buttonSizes.Sm" [borderRadius]="buttonSizes.None">Apply</app-button>
+                </div>
+            </div>
+            <div class="browse-content--body">
+                <app-table [headers]="headers" [data]="students"></app-table>
+            </div>
+        </div>
+    </div>
+</div>

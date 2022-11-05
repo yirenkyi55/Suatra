@@ -13,7 +13,7 @@ export class SignInFormComponent implements OnInit {
   faSignIn = faSignInAlt;
 
   @Input() loading: boolean;
-  @Output() login = new EventEmitter<LoginRequestModel>();
+  @Output() handleLogin = new EventEmitter<LoginRequestModel>();
 
   signInForm = this.fb.group({
     email: [
@@ -32,7 +32,7 @@ export class SignInFormComponent implements OnInit {
 
   submit(): void {
     if (this.signInForm.valid) {
-      this.login.emit(this.signInForm.value as LoginRequestModel);
+      this.handleLogin.emit(this.signInForm.value as LoginRequestModel);
     }
   }
 }

@@ -1,0 +1,14 @@
+<nz-table [nzData]="data">
+    <thead>
+        <tr>
+            <th *ngFor="let header of headers">{{ header?.label }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of data">
+            <ng-container *ngFor="let header of headers">
+                <td [innerHTML]="record && record[header.key]"></td>
+            </ng-container>
+        </tr>
+    </tbody>
+</nz-table>

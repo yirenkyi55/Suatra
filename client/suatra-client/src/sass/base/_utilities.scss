@@ -9,3 +9,33 @@
   font-size: $font-md;
   color: $color-primary-a;
 }
+
+.scroll-display {
+  background-size: 100vw;
+  width: 100%;
+  height: 0.5rem;
+  animation: color_transition 2s infinite;
+}
+
+@keyframes color_transition {
+  0% {
+    background-color: $color-dark-a;
+    width: 20%;
+    opacity: 0.3;
+  }
+
+  50% {
+    background-color: green;
+    opacity: 0.5;
+  }
+
+  100% {
+    background-color: $color-primary-a;
+    opacity: 0.8;
+  }
+}
+
+h4 {
+  font-size: calc(1.2rem + 0.3vw);
+  color: $color-primary-a;
+}
