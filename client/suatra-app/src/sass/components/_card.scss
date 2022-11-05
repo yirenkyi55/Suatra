@@ -1,9 +1,8 @@
 .card {
-  max-width: 90rem;
+  min-width: 70%;
   box-shadow: $box-shadow;
   border: 2px solid var(--colorPrimaryA);
-  border-radius: 0.7rem;
-  margin: 3rem auto;
+  border-radius: 0.7rem;  
 
   &__body {
     background: var(--colorBackgroundA);

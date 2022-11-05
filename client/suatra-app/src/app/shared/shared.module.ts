@@ -43,6 +43,7 @@ import { TextAreaComponent } from './components/text-area/text-area.component';
 import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { ToggleDisplayPipe } from './pipes/toggle-display.pipe';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 const modules = [
   CommonModule,
@@ -91,6 +92,7 @@ const declarations = [
   TextAreaComponent,
   DropDownComponent,
   UploadComponent,
+  PageHeaderComponent,
 ];
 
 @NgModule({

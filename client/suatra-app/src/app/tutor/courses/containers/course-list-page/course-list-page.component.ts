@@ -16,9 +16,9 @@ export class CourseListPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('course list init called');
     this.store.dispatch(fromAppStore.GetCategoriesRequest());
   }
+
   onCreateCourse() {
     this.router.navigate(['0', 'create'], { relativeTo: this.route });
   }

@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/dashboard/header/header.component'
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 import { SharedModule } from '../shared/shared.module';
 import { EffectsModule } from '@ngrx/effects';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const modules = [
   CommonModule,
@@ -22,7 +23,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [DashboardComponent, HeaderComponent, SidebarComponent],
+  declarations: [DashboardComponent, HeaderComponent, SidebarComponent, NotFoundComponent],
   imports: [
     ...modules,
     SharedModule,
