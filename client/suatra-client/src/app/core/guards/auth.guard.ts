@@ -6,7 +6,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map, Observable } from 'rxjs';
+import { map, Observable, take } from 'rxjs';
 
 import * as fromAuthStore from 'src/app/auth/store';
 import * as fromAppStore from 'src/app/store';
@@ -24,11 +24,13 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
+    console.log('Auth Guard');
     return this.authenticate(state);
   }
 
   authenticate(state: RouterStateSnapshot): Observable<boolean> {
     return this.authStore.select(fromAuthStore.selectCurrentUser).pipe(
+      take(1), // to prevent ongoing subscription, we take the latest value
       map((currentUser) => {
         if (currentUser) {
           return true;

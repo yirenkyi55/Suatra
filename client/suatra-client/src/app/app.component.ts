@@ -9,8 +9,13 @@ import {
   NavigationCancel,
 } from '@angular/router';
 import { SubSink } from 'subsink';
-import * as fromAuthStore from 'src/app/auth/store';
 import { Store } from '@ngrx/store';
+import { NotificationService } from './core/services';
+
+import * as fromAuthStore from 'src/app/auth/store';
+import * as fromAppStore from 'src/app/core/store';
+import * as fromStore from 'src/app/store';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,9 +29,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private store: Store<fromAuthStore.AuthState>
+    private authStore: Store<fromAuthStore.AuthState>,
+    private appStore: Store<fromAppStore.AppState>,
+    private store: Store<fromStore.State>,
+    private notificationService: NotificationService
   ) {
-    this.router.events.subscribe((routerEvent) => {
+    this.subs.sink = this.router.events.subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationStart) {
         this.showLoadingIndicator = true;
       }
@@ -42,14 +50,34 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subs.sink = this.store
+    this.subs.sink = this.authStore
       .select(fromAuthStore.selectCurrentUser)
       .subscribe((user) => {
         this.currentUser = user;
+        // if (!user) {
+        //   console.log(user);
+        //   this.store.dispatch(fromStore.Go({ path: ['/auth/sign-in'] }));
+        // }
+      });
+
+    //Create notification
+    this.subs.sink = this.appStore
+      .select(fromAppStore.selectNotification)
+      .subscribe((response) => {
+        response &&
+          this.notificationService.createNotification(
+            response.notificationType,
+            response.title,
+            response.message
+          );
       });
   }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+  }
+
+  onLogOut(): void {
+    this.authStore.dispatch(fromAuthStore.logoutRequest());
   }
 }

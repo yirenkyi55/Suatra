@@ -1,5 +1,5 @@
 <nz-layout>
-    <app-sidebar [dashboardMenus]="dashboardMenus" (sidebarCollapse)="onSidebarCollapse($event)">
+    <app-sidebar [dashboardMenus]="dashboardMenus" [user]="user" (sidebarCollapse)="onSidebarCollapse($event)">
         <nz-layout [ngClass]="collapsedClass">
             <app-header (handleLogout)="onLogout()" [user]="user">
             </app-header>

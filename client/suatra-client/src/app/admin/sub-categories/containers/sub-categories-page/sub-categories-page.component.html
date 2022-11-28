@@ -1,0 +1,9 @@
+<app-sub-categories-list [categories]="categories$| async" [subCategories]="subCategories$|async"
+    (handleShowCreateForm)="onShowCreateForm()" (handleFilteredForm)="onFilterForm($event)">
+</app-sub-categories-list>
+
+<app-modal [visible]="showCreateForm" (cancelledClick)="hideCreateForm()" title="Create Categories">
+    <app-sub-categories-form [categories]="categories$ | async" [loadingStatus]="formStatus$ | async"
+        (handleCreateNewSubCategory)="onCreateNewSubCategory($event)" [filteredItems]="this.subCategoryFilter">
+    </app-sub-categories-form>
+</app-modal>

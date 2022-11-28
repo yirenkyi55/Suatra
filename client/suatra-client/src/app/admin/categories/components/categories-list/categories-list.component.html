@@ -1,0 +1,5 @@
+<app-list-page pageHeading="Categories" [hasSideBar]="false" (handleNewButtonClick)="onNewButtonClick()"
+    [tableHeaders]="headerData" [tableData]="categories!" [showActionButtons]="true" [actionButtons]="actionButtons"
+    (handleSearchQuery)="onSearchQuery($event)" (handleActionButtonClick)="onHandleActionButtonClick($event)"
+    [searchQuery]="searchQuery">
+</app-list-page>

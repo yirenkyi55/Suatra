@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -29,11 +29,19 @@ import {
 } from './store';
 import { environment } from 'src/environments/environment';
 import { CoreModule } from './core/core.module';
+import {
+  HttpErrorInterceptor,
+  JwtInterceptor,
+  RefreshTokenInterceptor,
+} from './core/interceptors';
 
 export const metaReducers: MetaReducer<any>[] = [localStorageSyncReducer];
 
 registerLocaleData(en);
 
+//{
+//  serializer: CustomSerializer,
+//}
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -56,13 +64,18 @@ registerLocaleData(en);
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
     }),
-    StoreRouterConnectingModule.forRoot({
-      serializer: CustomSerializer,
-    }),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     { provide: RouterStateSerializer, useClass: CustomSerializer },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RefreshTokenInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

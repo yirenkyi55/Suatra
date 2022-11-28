@@ -35,3 +35,14 @@ export const loginRequestFailure = createAction(
   '[Auth] Login Request Failure',
   props<any>()
 );
+
+export const logoutRequest = createAction('[Auth] Log Out Request');
+export const logoutRequestSuccess = createAction(
+  '[Auth] Log Out Request Success',
+  props<any>()
+);
+
+export const logOutRequestFailure = createAction(
+  '[Auth] Log Out Request Failure',
+  props<any>()
+);

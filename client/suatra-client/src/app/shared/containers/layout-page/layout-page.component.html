@@ -1,0 +1,27 @@
+<div class="page-header">
+    <div class="page-header__content">
+        <ng-content select="#headerContent"></ng-content>
+    </div>
+</div>
+
+<div class="page-sidebar-container" *ngIf="hasSidebar">
+    <h4>
+        <ng-content select="#sidebarHeader"></ng-content>
+    </h4>
+    <div class="page-sidebar-container__body">
+        <ng-content select="#sidebarContent"></ng-content>
+    </div>
+    <div class="page-sidebar-container__footer">
+        <ng-content select="#sidebarFooter"></ng-content>
+    </div>
+</div>
+
+<div class="page-container" [ngClass]="{fullWidth: !hasSidebar}">
+    <div class="page-container__body">
+        <div class="browse-content">
+            <div class="browse-content--body">
+                <ng-content select="#mainContent"></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

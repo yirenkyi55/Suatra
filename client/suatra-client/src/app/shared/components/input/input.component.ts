@@ -67,7 +67,11 @@ export class InputComponent implements OnInit, ControlValueAccessor, OnChanges {
   // Determine whether the state of the control is not valid
   get isInValidState() {
     const invalid =
-      this.required || this.inValidPattern || this.minLength || this.minValue;
+      this.required ||
+      this.inValidPattern ||
+      this.minLength ||
+      this.minValue ||
+      this.maxLength;
 
     if (this.validityErrorName) {
       return invalid || this.notValidControl;
@@ -99,12 +103,22 @@ export class InputComponent implements OnInit, ControlValueAccessor, OnChanges {
     );
   }
 
+  get maxLength() {
+    return (
+      this.notValidAndTouched && this.controlDir.control?.errors?.maxlength
+    );
+  }
+
   get minValue() {
     return this.notValidAndTouched && this.controlDir.control?.errors?.min;
   }
 
   get requiredLengthFromMinLength() {
     return this.controlDir.control?.errors?.minlength?.requiredLength;
+  }
+
+  get requiredLengthFromMaxLength() {
+    return this.controlDir.control?.errors?.maxlength?.requiredLength;
   }
 
   get requiredMinValue() {

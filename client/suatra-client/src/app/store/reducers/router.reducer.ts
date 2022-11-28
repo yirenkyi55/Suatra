@@ -51,3 +51,8 @@ export const getUrl = createSelector(
   getRouterState,
   (routerState) => routerState?.state?.url
 );
+
+export const getQueryParams = createSelector(
+  getRouterState,
+  (routerState) => routerState?.state?.queryParams
+);

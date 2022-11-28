@@ -1,14 +1,41 @@
-<nz-table [nzData]="data">
+<nz-table #rowSelectionTable [nzData]="tableData" [nzShowPagination]="hasClientSidePagination"
+    [nzShowSizeChanger]="hasClientSidePagination" (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
     <thead>
         <tr>
-            <th *ngFor="let header of headers">{{ header?.label }}</th>
+            <th *ngFor="let header of tableHeaders">{{ header?.label }}</th>
+            <th *ngIf="showActionButtons">Actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let record of data">
-            <ng-container *ngFor="let header of headers">
-                <td [innerHTML]="record && record[header.key]"></td>
+        <tr *ngFor="let record of (hasClientSidePagination? rowSelectionTable.data:tableData)">
+            <ng-container *ngFor="let header of tableHeaders">
+                <td [innerHTML]="record && record |objectAccessor:header.key"></td>
             </ng-container>
+
+            <td *ngIf="showActionButtons">
+                <ng-container *ngFor="let actionButton of actionButtons">
+                    <button *ngIf="!actionButton.confirmMessage"
+                        (click)="onHandleActionButtonClick(record, actionButton)" class="button-icon"
+                        [ngClass]="'button-icon__' + actionButton.type" [nzTooltipTitle]="actionButton.toolTipMessage"
+                        nzTooltipPlacement="bottom" nz-button nz-tooltip>
+                        <fa-icon [icon]="actionButton.icon" size="sm"></fa-icon>
+                    </button>
+                    <button nzPopconfirmPlacement="bottom" nz-popconfirm
+                        [nzPopconfirmTitle]="actionButton.confirmMessage" [nzIcon]="iconTpl"
+                        *ngIf="actionButton.confirmMessage"
+                        (nzOnConfirm)="onHandleActionButtonClick(record, actionButton)" class="button-icon"
+                        [ngClass]="'button-icon__' + actionButton.type" [nzTooltipTitle]="actionButton.toolTipMessage"
+                        nzTooltipPlacement="bottom" nz-button nz-tooltip>
+                        <fa-icon [icon]="actionButton.icon" size="sm"></fa-icon>
+                    </button>
+                </ng-container>
+            </td>
         </tr>
     </tbody>
 </nz-table>
+
+<ng-template #iconTpl>
+    <span nz-icon nzType="question-circle-o" style="color: red;">
+    </span>
+
+</ng-template>

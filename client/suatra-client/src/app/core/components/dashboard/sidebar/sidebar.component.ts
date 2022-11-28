@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { DashboardMenu } from 'src/app/core/models';
+import { DashboardMenu, UserModel } from 'src/app/core/models';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,6 +10,7 @@ export class SidebarComponent implements OnInit {
   @Input() isCollapsed = true;
   @Input() dashboardMenus: DashboardMenu[] = [];
   @Output() sidebarCollapse = new EventEmitter<boolean>();
+  @Input() user: UserModel | null;
 
   constructor() {}
 

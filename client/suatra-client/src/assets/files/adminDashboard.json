@@ -9,17 +9,16 @@
     "icon": "apartment",
     "children": [
       {
+        "title": "Categories",
+        "route": "admin/categories"
+      },
+      {
         "title": "Sub Categories",
         "route": "admin/sub-categories"
-
       },
       {
-        "title": "Sources",
-        "route": "admin/sources"
-      },
-      {
-        "title": "Logics",
-        "route": "admin/logics"
+        "title": "Topics",
+        "route": "admin/topics"
       }
     ]
   },

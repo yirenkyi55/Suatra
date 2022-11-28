@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { faRegistered, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
-import { LoginRequestModel } from 'src/app/core/models';
+import { LoadingStatus, LoginRequestModel } from 'src/app/core/models';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -12,7 +12,7 @@ export class SignInFormComponent implements OnInit {
   faRegister = faRegistered;
   faSignIn = faSignInAlt;
 
-  @Input() loading: boolean;
+  @Input() loadingStatus: LoadingStatus | null;
   @Output() handleLogin = new EventEmitter<LoginRequestModel>();
 
   signInForm = this.fb.group({
@@ -28,11 +28,17 @@ export class SignInFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
+  get isFormLoading(): boolean {
+    return this.loadingStatus === LoadingStatus.Loading;
+  }
+
   ngOnInit(): void {}
 
   submit(): void {
     if (this.signInForm.valid) {
       this.handleLogin.emit(this.signInForm.value as LoginRequestModel);
+    } else {
+      this.signInForm.markAllAsTouched();
     }
   }
 }

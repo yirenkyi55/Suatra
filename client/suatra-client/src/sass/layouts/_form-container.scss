@@ -1,0 +1,47 @@
+.form-container {
+  background: $color-white-c;
+  min-height: 50vh;
+  border-radius: 0.5rem;
+  margin: 7rem auto;
+  box-shadow: $shadow-lg;
+
+  @include respond(tab-port) {
+    width: 80%;
+  }
+
+  &__header {
+    background-color: $color-dark-a;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    padding: 2rem;
+    h4 {
+      text-align: center;
+      font-family: $font-family-secondary;
+      font-weight: 600;
+      color: $color-white-a;
+    }
+  }
+  &__body {
+    padding: 2rem;
+    min-height: 40vh;
+  }
+  &__footer {
+    background-color: $color-white-a;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.from-group {
+  padding: 1rem 0;
+  &__label {
+    font-family: $font-family-secondary;
+    font-size: $font-md;
+    color: $color-primary-a;
+  }
+  &__item {
+    margin-top: 0.5rem;
+  }
+}

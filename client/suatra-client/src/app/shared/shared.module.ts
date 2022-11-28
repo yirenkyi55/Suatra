@@ -17,6 +17,13 @@ import { ListPageComponent } from './containers/list-page/list-page.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { TableComponent } from './components/table/table.component';
+import { LayoutPageComponent } from './containers/layout-page/layout-page.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { CategoryFormComponent } from './components/forms/category-form/category-form.component';
+import { SelectInputComponent } from './components/forms/select-input/select-input.component';
+import { FormButtonsComponent } from './components/forms/form-buttons/form-buttons.component';
+import { ObjectAccessorPipe } from './pipes/object-accessor.pipe';
+import { StatusLoadingPipe } from './pipes/status-loading.pipe';
 
 const declarations = [
   InputComponent,
@@ -27,6 +34,12 @@ const declarations = [
   EditPageComponent,
   ListPageComponent,
   PageHeaderComponent,
+  ModalComponent,
+  CategoryFormComponent,
+  SelectInputComponent,
+  FormButtonsComponent,
+  ObjectAccessorPipe,
+  StatusLoadingPipe,
 ];
 const modules = [
   FormsModule,
@@ -39,7 +52,12 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...declarations, SearchItemComponent, TableComponent],
+  declarations: [
+    ...declarations,
+    SearchItemComponent,
+    TableComponent,
+    LayoutPageComponent,
+  ],
   imports: [...modules],
   exports: [...modules, ...declarations],
 })

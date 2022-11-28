@@ -1,0 +1,9 @@
+<app-categories-list (handleNewCategory)="handleCreateNewCategory()"
+    (handleCategoryQuery)="fetchCategoriesByName($event)"
+    (handleNavigateToSubCategories)="navigateToSubCategories($event)" [categories]="categories$ | async">
+</app-categories-list>
+
+<app-modal [visible]="showCreateForm" (cancelledClick)="hideCreateForm()" title="Create Categories">
+    <app-categories-form (submitCategory)="handleCreateUpdateForm($event)" [loadingStatus]="status$ | async">
+    </app-categories-form>
+</app-modal>

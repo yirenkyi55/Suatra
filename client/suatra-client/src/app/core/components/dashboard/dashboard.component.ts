@@ -8,7 +8,7 @@ import { DashboardMenu, UserModel } from '../../models';
 })
 export class DashboardComponent implements OnInit {
   @Input() dashboardMenus: DashboardMenu[] = [];
-  @Input() user: UserModel | undefined;
+  @Input() user: UserModel | null;
   collapsedClass = 'expanded';
 
   @Output() logout = new EventEmitter<boolean>();

@@ -1,28 +1,34 @@
-<div class="page-header">
-    <div class="page-header__content">
-        <h2>Your Courses</h2>
-        <app-search-item></app-search-item>
-        <app-button>Create New</app-button>
-    </div>
-</div>
+<app-layout-page sidebarHeader="Apply Filters" [hasSidebar]="hasSideBar">
+    <ng-container id="headerContent">
+        <h2>{{pageHeading}}</h2>
+        <app-search-item [searchQuery]="searchQuery" (handleSearchQuery)="onHandleSearchQuery($event)">
+        </app-search-item>
+        <app-button (handleClick)="onNewButtonClick()">
+            <fa-icon [icon]="plusIcon"></fa-icon> Create New
+        </app-button>
+    </ng-container>
 
-<div class="page-container">
-    <div class="page-container__body">
-        <div class="browse-content">
-            <div class="browse-content--filter">
-                <h4>Apply Filters</h4>
-                <div class="browse-content--filter__body">
+    <!-- Sidebar content -->
+    <ng-container id="sidebarHeader">
+        <fa-icon [icon]="filterIcon" size="xl"></fa-icon>
+        <nz-badge nzStandalone [nzCount]="filteredItemsCount" [nzStyle]="{ backgroundColor: '#52c41a' }"></nz-badge>
 
-                </div>
-                <div class="browse-content--filter__footer">
-                    <app-button [inverted]="true" [size]="buttonSizes.Sm" [borderRadius]="buttonSizes.None">Clear
-                    </app-button>
-                    <app-button [size]="buttonSizes.Sm" [borderRadius]="buttonSizes.None">Apply</app-button>
-                </div>
-            </div>
-            <div class="browse-content--body">
-                <app-table [headers]="headers" [data]="students"></app-table>
-            </div>
-        </div>
-    </div>
-</div>
+    </ng-container>
+    <ng-container id="sidebarContent">
+        <ng-content select="[filterData]"></ng-content>
+    </ng-container>
+
+    <ng-container id="sidebarFooter">
+        <app-button [inverted]="true" [size]="buttonSizes.Sm" [borderRadius]="buttonSizes.None"
+            (handleClick)="onClearFilter()">Clear
+        </app-button>
+        <app-button [size]="buttonSizes.Sm" [borderRadius]="buttonSizes.None" (handleClick)="onApplyFilter()">Apply
+        </app-button>
+    </ng-container>
+
+    <!-- Main Content -->
+    <ng-container id="mainContent">
+        <app-table [tableHeaders]="tableHeaders" [tableData]="tableData" [showActionButtons]="showActionButtons"
+            [actionButtons]="actionButtons" (handleActionButtonClick)="onHandleactionButtonClick($event)"></app-table>
+    </ng-container>
+</app-layout-page>

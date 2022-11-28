@@ -1,0 +1,12 @@
+<app-list-page pageHeading="Sub Categories" (handleNewButtonClick)="onShowCreateForm()" [tableHeaders]="tableHeaders"
+    [tableData]="subCategories!" [showActionButtons]="true" (handleClearFilter)="onClearFilter()"
+    (handleApplyFilter)="onApplyFilter()" [actionButtons]="actionButtons" [searchQuery]="searchQuery"
+    (handleSearchQuery)="onSearchQuery($event)" [filterParams]="filterParams">
+    <ng-container filterData>
+        <form [formGroup]="filterForm">
+            <app-select-input [items]="categories!" [control]="filterForm.controls.category" itemLabel="name"
+                itemValue="id" label="Categories">
+            </app-select-input>
+        </form>
+    </ng-container>
+</app-list-page>

@@ -9,7 +9,7 @@ import { UserModel } from 'src/app/core/models';
 export class HeaderComponent implements OnInit {
   @Input() isCollapsed = false;
   @Output() handleLogout = new EventEmitter<boolean>();
-  @Input() user: UserModel | undefined;
+  @Input() user: UserModel | null;
 
   constructor() {}
 

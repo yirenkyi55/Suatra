@@ -48,6 +48,8 @@ export class SignUpFormComponent implements OnInit {
   submitForm(): void {
     if (this.signUpForm.valid) {
       this.handleSignUp.emit(this.signUpForm.value as RegisterRequestModel);
+    } else {
+      this.signUpForm.markAllAsTouched();
     }
   }
 }

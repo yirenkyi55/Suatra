@@ -1,0 +1,10 @@
+<app-topics-list [categories]="categories$|async" [subCategories]="subCategoriesForFilter$|async"
+    (handleGetSubCategory)="getSubCategoriesForFilter($event)" (handleCreateNewTopic)="onCreateNewTopic()"
+    (handleFilterList)="onFilterItem($event)" [topics]="topics$ | async"></app-topics-list>
+
+<app-modal [visible]="showCreateForm" title="Create Topic" (cancelledClick)="onHideCreateForm()">
+    <app-topics-form [categories]="categories$|async" [subCategories]="subCategories$|async"
+        (handleGetSubCategory)="getSubCategoriesByCategory($event)" (handleCreateTopic)="onCreateTopic($event)"
+        [loadingStatus]="topicStatus$ | async">
+    </app-topics-form>
+</app-modal>

@@ -1,10 +1,9 @@
-<nz-header>
+<nz-header *ngIf="user">
     <span class="item-right" nz-dropdown [nzDropdownMenu]="menu" nzPlacement="bottomCenter">
         <span>Samuel Akwesi</span>
         <nz-avatar nzIcon="user" class="icon-item">
         </nz-avatar>
     </span>
-
 </nz-header>
 
 <nz-dropdown-menu #menu="nzDropdownMenu">

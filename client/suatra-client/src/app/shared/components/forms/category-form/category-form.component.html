@@ -1,0 +1,10 @@
+<div class="from-group">
+    <label class="from-group__label">{{label}}</label>
+    <div class="from-group__item">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Category" [formControl]="control">
+            <nz-option *ngFor="let item of items" [nzLabel]="item[itemLabel]" [nzValue]="item[itemValue]">
+            </nz-option>
+        </nz-select>
+
+    </div>
+</div>

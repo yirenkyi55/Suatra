@@ -13,6 +13,7 @@ export class ButtonComponent implements OnInit {
   @Input() inverted = false;
   @Input() disabled = false;
   @Input() size = Sizes.Md;
+  @Input() buttonType = 'submit';
 
   @Output() handleClick = new EventEmitter<Event>();
 

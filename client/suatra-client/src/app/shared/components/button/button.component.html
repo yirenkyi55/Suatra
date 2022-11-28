@@ -1,4 +1,4 @@
-<button [class]="buttonClass" [class.disabled]="disabled" (click)="onButtonClick($event)">
+<button [type]="buttonType" [class]="buttonClass" [class.disabled]="disabled" (click)="onButtonClick($event)">
     <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isLoading"></i> &nbsp;
     <ng-content></ng-content>
 </button>

@@ -100,3 +100,35 @@
     }
   }
 }
+
+.ant-btn-primary {
+  border-color: transparent;
+}
+
+.button-icon {
+  padding: 0.2rem 1.3rem;
+  margin: 0.5rem;
+  display: inline-block;
+  border: none;
+  font-family: "Handlee", cursive;
+  font-weight: 300;
+  font-size: calc(1.4rem + 0.2vw);
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-radius: 2px;
+  color: $color-white-a;
+
+  &__create {
+    background: $primary-linear-gradient;
+  }
+
+  &__update {
+    background: $secondary-linear-gradient;
+  }
+
+  &__delete {
+    background: $tertiary-linear-gradient;
+  }
+}

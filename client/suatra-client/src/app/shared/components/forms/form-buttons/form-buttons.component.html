@@ -1,0 +1,10 @@
+<div class="form-footer">
+    <div class="form-footer__items">
+        <app-button buttonType="button" [inverted]="true" (handleClick)="onHandleResetForm()">
+            <fa-icon [icon]="resetIcon"></fa-icon> Reset
+        </app-button>
+        <app-button [isLoading]="isLoading">
+            <fa-icon [icon]="plusIcon"></fa-icon> Create
+        </app-button>
+    </div>
+</div>

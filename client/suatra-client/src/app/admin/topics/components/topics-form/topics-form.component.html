@@ -1,0 +1,9 @@
+<form [formGroup]="topicsForm" (ngSubmit)="handleCreateForm()">
+    <app-topic-filter-form [categories]="categories" [subCategories]="subCategories"
+        [categoryControl]="topicsForm.controls.categoryId" [subCategoryControl]="topicsForm.controls.subCategoryId"
+        (handleGetSubCategory)="onRetrieveSubCategory($event)">
+    </app-topic-filter-form>
+    <app-input formControlName="name" label="Topic Name"></app-input>
+    <app-form-buttons (handleResetForm)="handleResetForm()" [isLoading]="loadingStatus|statusLoading">
+    </app-form-buttons>
+</form>

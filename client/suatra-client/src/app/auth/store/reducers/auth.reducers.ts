@@ -9,7 +9,7 @@ export interface AuthState {
 
 export const initialState: AuthState = {
   currentUser: null,
-  status: LoadingStatus.idle,
+  status: LoadingStatus.Idle,
 };
 
 const featureReducer = createReducer(
@@ -20,19 +20,19 @@ const featureReducer = createReducer(
     fromAuthActions.loginRequest,
     (state) => ({
       ...state,
-      status: LoadingStatus.loading,
+      status: LoadingStatus.Loading,
     })
   ),
 
   on(fromAuthActions.loginRequestSuccess, (state, { responseModel }) => ({
     ...state,
     currentUser: responseModel,
-    status: LoadingStatus.success,
+    status: LoadingStatus.Success,
   })),
 
   on(fromAuthActions.createAccountRequestSuccess, (state) => ({
     ...state,
-    status: LoadingStatus.success,
+    status: LoadingStatus.Success,
   })),
 
   on(
@@ -40,9 +40,15 @@ const featureReducer = createReducer(
     fromAuthActions.loginRequestFailure,
     (state) => ({
       ...state,
-      status: LoadingStatus.error,
+      status: LoadingStatus.Error,
     })
-  )
+  ),
+
+  on(fromAuthActions.logoutRequest, (state) => ({
+    ...state,
+    // status: LoadingStatus.Idle,
+    currentUser: null,
+  }))
 );
 
 export function reducer(

@@ -1,12 +1,4 @@
-<app-dashboard [dashboardMenus]="dashboardMenuItems" *ngIf="currentUser">
+<app-dashboard [dashboardMenus]="dashboardMenuItems" [user]="currentUser" (logout)="onLogOut()">
     <div class="scroll-display" *ngIf="showLoadingIndicator"></div>
-    <ng-container *ngTemplateOutlet="routerOutletTemplate"></ng-container>
-</app-dashboard>
-
-<ng-container *ngIf="!currentUser">
-    <ng-container *ngTemplateOutlet="routerOutletTemplate"></ng-container>
-</ng-container>
-
-<ng-template #routerOutletTemplate>
     <router-outlet></router-outlet>
-</ng-template>
+</app-dashboard>

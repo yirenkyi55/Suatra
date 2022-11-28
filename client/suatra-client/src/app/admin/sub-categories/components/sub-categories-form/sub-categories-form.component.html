@@ -1,0 +1,8 @@
+<form [formGroup]="subCategoriesForm" (ngSubmit)="handleCreateForm()">
+    <app-select-input [items]="categories!" [control]="subCategoriesForm.controls.categoryId" itemLabel="name"
+        itemValue="id" label="Categories">
+    </app-select-input>
+    <app-input formControlName="name" label="Sub Category"></app-input>
+    <app-form-buttons (handleResetForm)="handleResetForm()" [isLoading]="loadingStatus|statusLoading">
+    </app-form-buttons>
+</form>

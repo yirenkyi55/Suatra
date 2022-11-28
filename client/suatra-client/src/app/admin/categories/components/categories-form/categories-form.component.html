@@ -1,0 +1,5 @@
+<form [formGroup]="categoryForm" (ngSubmit)="handleCreateForm()">
+    <app-input formControlName="name" label="Category Name"></app-input>
+    <app-form-buttons (handleResetForm)="handleResetForm()" [isLoading]="loadingStatus|statusLoading">
+    </app-form-buttons>
+</form>

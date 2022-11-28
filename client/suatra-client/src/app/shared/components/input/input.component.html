@@ -11,6 +11,8 @@
     <span *ngIf="notValidControl" class="error">{{invalidMessage}}</span>
     <span *ngIf="minLength" class="error">{{ label }} should contain at least
         {{ requiredLengthFromMinLength }} characters</span>
+    <span *ngIf="maxLength" class="error">{{ label }} should contain a maximum of
+        {{ requiredLengthFromMaxLength }} characters</span>
     <span *ngIf="minValue" class="error">{{ label }} should have a minimum value of {{ requiredMinValue }}
     </span>
 </nz-form-item>

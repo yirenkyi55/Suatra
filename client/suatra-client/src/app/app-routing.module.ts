@@ -14,13 +14,18 @@ const routes: Routes = [
       import('./tutor/tutor.module').then((m) => m.TutorModule),
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

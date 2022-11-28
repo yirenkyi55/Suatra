@@ -1,0 +1,15 @@
+<div class="from-group">
+    <label class="from-group__label">{{label}}</label>
+    <div class="from-group__item">
+        <nz-select nzSize="large" [nzStatus]="status" nzShowSearch nzAllowClear [nzPlaceHolder]="placeHolderText||label"
+            [formControl]="control">
+
+            <nz-option *ngFor="let item of items" [nzLabel]="item[itemLabel]" [nzValue]="item[itemValue]">
+            </nz-option>
+        </nz-select>
+        <ng-container *ngIf="isInvalid">
+            <span class="error">{{label}} is required</span>
+        </ng-container>
+    </div>
+
+</div>

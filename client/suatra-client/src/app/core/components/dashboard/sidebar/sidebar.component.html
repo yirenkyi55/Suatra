@@ -1,25 +1,27 @@
 <nz-layout class="layout">
-    <nz-sider nzCollapsible [nzCollapsed]="isCollapsed" [nzCollapsedWidth]="0"
-        (nzCollapsedChange)="onCollapseChange($event)">
-        <ul nz-menu nzTheme="dark" nzMode="inline">
-            <ng-container *ngFor="let menu of dashboardMenus">
-                <li nz-submenu [nzTitle]="menu.title" [nzIcon]="menu.icon" *ngIf="menu.children">
-                    <ul>
-                        <li class="nav-link" nz-menu-item *ngFor="let child of menu.children"
-                            [routerLink]="[child.route]" [routerLinkActive]="'active-link'">
-                            {{ child.title }}
-                        </li>
-                    </ul>
-                </li>
+    <ng-container *ngIf="user">
+        <nz-sider nzCollapsible [nzCollapsed]="isCollapsed" [nzCollapsedWidth]="0"
+            (nzCollapsedChange)="onCollapseChange($event)">
+            <ul nz-menu nzTheme="dark" nzMode="inline">
+                <ng-container *ngFor="let menu of dashboardMenus">
+                    <li nz-submenu [nzTitle]="menu.title" [nzIcon]="menu.icon" *ngIf="menu.children">
+                        <ul>
+                            <li class="nav-link" nz-menu-item *ngFor="let child of menu.children"
+                                [routerLink]="[child.route]" [routerLinkActive]="'active-link'">
+                                {{ child.title }}
+                            </li>
+                        </ul>
+                    </li>
+                    <li nz-menu-item class="nav-link" *ngIf="!menu.children" [routerLink]="[menu.route]"
+                        [routerLinkActive]="'active-link'">
+                        <i nz-icon [nzType]="menu.icon"></i>
+                        <span>{{ menu.title }}</span>
+                    </li>
+                </ng-container>
+            </ul>
+        </nz-sider>
+    </ng-container>
 
-                <li nz-menu-item class="nav-link" *ngIf="!menu.children" [routerLink]="[menu.route]"
-                    [routerLinkActive]="'active-link'">
-                    <i nz-icon [nzType]="menu.icon"></i>
-                    <span>{{ menu.title }}</span>
-                </li>
-            </ng-container>
-        </ul>
-    </nz-sider>
 
     <ng-content></ng-content>
 </nz-layout>

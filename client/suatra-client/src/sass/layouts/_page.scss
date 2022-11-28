@@ -26,7 +26,7 @@
 
       @include respond(tab-port) {
         align-self: auto;
-        font-size: 3rem;
+        font-size: 2rem;
         margin: 0 1rem;
       }
     }
@@ -58,14 +58,15 @@
 }
 
 .page-container {
-  margin: 0 auto;
-  position: relative;
   margin-top: 6.8rem;
-
-  border-radius: 2rem;
   box-shadow: $shadow-md;
-  background-color: rgb(249, 249, 249);
-  z-index: 0;
+  @include respond(tab-port) {
+    position: absolute;
+    left: 30rem;
+    width: calc(100% - 32rem);
+    background-color: $color-white-c;
+    margin-left: 2rem;
+  }
 
   &__body {
     min-height: 45vh;
@@ -78,44 +79,6 @@
     justify-content: space-between;
   }
 
-  &--filter {
-    h4 {
-      text-align: center;
-      font-family: $font-family-secondary;
-      padding-top: 0.5rem;
-      background: $color-white-c;
-    }
-    @include respond(tab-port) {
-      align-self: flex-start;
-      width: 16vw;
-      position: relative;
-      background: $color-white-c;
-      border-radius: 5px;
-    }
-
-    &__body {
-      background: $color-white-c;
-      padding: 1rem;
-      @include respond(tab-port) {
-        max-height: 70vh;
-        min-height: 70vh;
-        overflow-y: scroll;
-        background-color: white;
-      }
-    }
-    &__footer {
-      padding-top: 0.5rem;
-      @include respond(tab-port) {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background-color: $color-white-c;
-      }
-    }
-  }
-
   &--body {
     padding: 1rem;
     @include respond(tab-port) {
@@ -124,5 +87,51 @@
       background-color: white;
       margin: 2rem;
     }
+  }
+}
+
+.page-sidebar-container {
+  margin-top: 6.8rem;
+  @include respond(tab-port) {
+    height: calc(100vh - 6.8rem);
+    position: fixed;
+    left: 0;
+    z-index: 2;
+    width: 30rem;
+    border-top-right-radius: 0.5rem;
+    background-color: $color-white-c;
+    padding: 2rem;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  &__body {
+    background: $color-white-c;
+    padding: 1rem;
+    @include respond(tab-port) {
+      min-height: calc(0.7 * (100vh - 6.8rem)); //70% of the parent height
+      overflow-y: scroll;
+      background-color: white;
+    }
+  }
+  &__footer {
+    padding-top: 0.5rem;
+    @include respond(tab-port) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.fullWidth {
+  @include respond(tab-port) {
+    position: relative;
+    width: 85%;
+    background-color: rgb(249, 249, 249);
+    margin: 6.8rem auto 0;
+    left: 0;
   }
 }

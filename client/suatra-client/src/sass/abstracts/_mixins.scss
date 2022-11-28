@@ -77,3 +77,14 @@
     }
   }
 }
+
+@mixin clear-fix {
+  content: "";
+  clear: both;
+  display: table;
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

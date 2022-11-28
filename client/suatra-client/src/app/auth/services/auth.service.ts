@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import {
   LoginRequestModel,
   RegisterRequestModel,
@@ -21,6 +21,27 @@ export class AuthService {
   }
 
   login(model: LoginRequestModel): Observable<UserModel> {
-    return this.http.post<UserModel>(`${this.baseUrl}/login`, model);
+    return this.http.post<UserModel>(`${this.baseUrl}/login`, model, {
+      withCredentials: true,
+    });
+  }
+
+  refreshToken(model: { token: string }): Observable<UserModel> {
+    return this.http.post<UserModel>(`${this.baseUrl}/refresh`, model, {
+      withCredentials: true,
+    });
+  }
+
+  getToken(): string | null {
+    const token = localStorage.getItem('authState');
+    if (token) {
+      return JSON.parse(token)?.auth?.currentUser?.accessToken;
+    }
+    return null;
+  }
+
+  logOut(): Observable<boolean> {
+    localStorage.removeItem('authState');
+    return of(true);
   }
 }

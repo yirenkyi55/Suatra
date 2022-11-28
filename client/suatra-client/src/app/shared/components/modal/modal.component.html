@@ -1,0 +1,8 @@
+<nz-modal nzWrapClassName="vertical-center-modal" [(nzVisible)]="visible" [nzTitle]="title" [nzOkLoading]="okLoading"
+    [nzOkDisabled]="okDisabled" [nzCancelDisabled]="cancelDisabled" (nzOnCancel)="handleCancel()">
+    <div *nzModalContent>
+        <ng-content></ng-content>
+    </div>
+    <div *nzModalFooter>
+    </div>
+</nz-modal>

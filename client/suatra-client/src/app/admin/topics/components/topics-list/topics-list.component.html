@@ -1,0 +1,13 @@
+<app-list-page pageHeading="Topics" (handleNewButtonClick)="onCreateNewTopic()" [tableHeaders]="tableHeaders"
+    [actionButtons]="actionButtons" (handleClearFilter)="onClearFilter()" (handleApplyFilter)="onApplyFilter()"
+    [showActionButtons]="true" [searchQuery]="searchQuery" (handleSearchQuery)="onSearchQuery($event)"
+    [filterParams]="filterParams" [tableData]="topics!">
+    <ng-container filterData>
+        <form [formGroup]="filterForm">
+            <app-topic-filter-form [categoryControl]="filterForm.controls.category"
+                [subCategoryControl]="filterForm.controls.subcategory" [subCategories]="subCategories"
+                (handleGetSubCategory)="onRetrieveSubCategory($event)" [categories]="categories">
+            </app-topic-filter-form>
+        </form>
+    </ng-container>
+</app-list-page>

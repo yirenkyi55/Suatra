@@ -27,4 +27,9 @@ body {
   --colorTextA: #626262;
 }
 
+::selection {
+  background-color: $color-primary-a;
+  color: $color-white-a;
+}
+
 $box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
