@@ -52,9 +52,9 @@ namespace Suatra.Infrastructure.Services
 
         public string GenerateRefreshToken()
         {
-            var rngCryptoServiceProvider = new RNGCryptoServiceProvider();
+            var rng = RandomNumberGenerator.Create();
             var salt = new byte[32];
-            rngCryptoServiceProvider.GetBytes(salt);
+            rng.GetBytes(salt);
             return Convert.ToBase64String(salt);
         }
 

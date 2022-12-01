@@ -1,16 +1,13 @@
-﻿using Suatra.Domain.Common;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using Suatra.Domain.Common;
 
 namespace Suatra.Domain.Entities
 {
     public class Category : BaseEntity
     {
-        public Category()
-        {
-            Topics = new HashSet<Topic>();
-        }
         public string Name { get; set; }
 
-        public virtual ICollection<Topic> Topics { get; set; }
+        public virtual ICollection<SubCategory> SubCategories { get; set; }
     }
 }

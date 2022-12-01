@@ -8,11 +8,6 @@ namespace Suatra.Domain.Entities
 {
     public class Course : AuditableEntity
     {
-        public Course()
-        {
-            CourseSections = new HashSet<CourseSection>();
-        }
-
         public string Name { get; set; }
 
         public string About { get; set; }

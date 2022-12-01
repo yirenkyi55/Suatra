@@ -1,10 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Linq;
+
+using FluentValidation;
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
-using Suatra.Application;
-using System.Linq;
+
+using Suatra.API.Helpers.Filters;
+using Suatra.Application.Features.Courses.Dto.Requests.Validators;
 
 namespace Suatra.API.Extensions
 {
@@ -14,6 +19,7 @@ namespace Suatra.API.Extensions
         {
             services.AddControllersWithViews(options =>
             {
+
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
@@ -29,7 +35,6 @@ namespace Suatra.API.Extensions
                     executingContext?.ActionArguments.Count ==
                     context.ActionDescriptor.Parameters.Count)
                     {
-
                         var errors = context.ModelState
                         .Where(e => e.Value.Errors.Any())
                         .SelectMany(e => e.Value.Errors)
@@ -40,7 +45,7 @@ namespace Suatra.API.Extensions
                         {
                             errors,
                             statusCode = 422,
-                            message="One or more validation errors occured"
+                            message = "One or more validation errors occurred"
                         });
                     }
 

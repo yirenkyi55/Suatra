@@ -1,16 +1,12 @@
-﻿using Suatra.Domain.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
+using Suatra.Domain.Common;
 
 namespace Suatra.Domain.Entities
 {
     public class CourseSection : BaseEntity
     {
-        public CourseSection()
-        {
-            SectionContents = new HashSet<SectionContent>();
-        }
-
         public string Name { get; set; }
 
         public string Description { get; set; }

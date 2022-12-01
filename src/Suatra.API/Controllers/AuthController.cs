@@ -3,8 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
+using Suatra.Application.Common.Exceptions;
 using Suatra.Application.Features.Auth.Commands.ActivateAccount;
 using Suatra.Application.Features.Auth.Commands.CreateAccount;
+using Suatra.Application.Features.Auth.Commands.RefreshToken;
 using Suatra.Application.Features.Auth.Commands.ResetPassword;
 using Suatra.Application.Features.Auth.Dto.Requests;
 using Suatra.Application.Features.Auth.Dto.Responses;
@@ -17,6 +20,8 @@ namespace Suatra.API.Controllers
     [Route("api/v{version:apiVersion}/auth")]
     public class AuthController: BaseController
     {
+        private const string RefreshTokenCookieName = "token_refresh";
+
         [HttpPost("account")]
         [AllowAnonymous]
         public async Task<ActionResult> CreateAccount(CreateAccountRequest request)
@@ -38,7 +43,7 @@ namespace Suatra.API.Controllers
         public async Task<ActionResult<AuthUserResponse>> Login(LoginRequest request)
         {
             var (userResponse, refreshToken) = await Mediator.Send(new LoginQuery(request));
-            SetTokenCookie(refreshToken);
+            AppendRefreshTokenToResponseCookie(refreshToken);
             return Ok(userResponse);
         }
 
@@ -55,7 +60,7 @@ namespace Suatra.API.Controllers
         public async Task<ActionResult<AuthUserResponse>> ResetPassword(ResetPasswordRequest request)
         {
             var (user,refreshToken) = await Mediator.Send(new ResetPasswordCommand(request));
-            SetTokenCookie(refreshToken);
+            AppendRefreshTokenToResponseCookie(refreshToken);
             return Ok(user);
         }
 
@@ -67,7 +72,22 @@ namespace Suatra.API.Controllers
             return Ok();
         }
 
-        private void SetTokenCookie(string token)
+        [AllowAnonymous]
+        [HttpPost("refresh")]
+        public async Task<ActionResult<AuthUserResponse>> RefreshToken(RefreshTokenRequest request)
+        {
+            if (!Request.Cookies.TryGetValue(RefreshTokenCookieName, out string refreshToken))
+            {
+                throw new UnauthorizedException("Unauthorized");
+            }
+
+            var (authUserResponse, refresh) = await Mediator.Send(new RefreshTokenCommand(request, refreshToken));
+
+            AppendRefreshTokenToResponseCookie(refresh);
+            return Ok(authUserResponse);
+        }
+
+        private void AppendRefreshTokenToResponseCookie(string token)
         {
             var cookieOptions = new CookieOptions
             {
@@ -75,7 +95,7 @@ namespace Suatra.API.Controllers
                 Expires = DateTime.UtcNow.AddDays(7)
             };
             
-            Response.Cookies.Append("refresh_token",token,cookieOptions);
+            Response.Cookies.Append(RefreshTokenCookieName, token,cookieOptions);
         }
     }
 }

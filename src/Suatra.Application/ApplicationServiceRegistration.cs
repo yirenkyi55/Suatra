@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 
 using FluentValidation;
+using FluentValidation.AspNetCore;
 
 using MediatR;
 
@@ -22,6 +23,10 @@ namespace Suatra.Application
             services.Configure<Settings>(configuration.GetSection("Settings"));
             services.Configure<ClientSettingOptions>(configuration.GetSection(nameof(ClientSettingOptions)));
             services.AddValidatorsFromAssemblyContaining<CreateCategoryRequestValidator>();
+            services.AddFluentValidationAutoValidation()
+                .AddFluentValidationClientsideAdapters()
+                .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
             return services;
         }
     }

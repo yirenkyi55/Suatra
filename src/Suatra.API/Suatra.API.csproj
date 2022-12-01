@@ -20,8 +20,4 @@
     <ProjectReference Include="..\Suatra.Infrastructure\Suatra.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Helpers\Filters\" />
-  </ItemGroup>
-
 </Project>

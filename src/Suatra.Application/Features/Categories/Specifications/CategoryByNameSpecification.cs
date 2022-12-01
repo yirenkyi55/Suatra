@@ -8,7 +8,6 @@ namespace Suatra.Application.Features.Categories.Specifications
         public CategoryByNameSpecification(string name)
             : base(cat => cat.Name.ToLower() == name.ToLower())
         {
-
         }
     }
 }

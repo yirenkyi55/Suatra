@@ -28,7 +28,7 @@ namespace Suatra.Application.Features.Topics.Queries.GetTopics
         }
         public async Task<IReadOnlyList<TopicResponse>> Handle(GetTopicsQuery request, CancellationToken cancellationToken)
         {
-            var spec = new TopicWithCategorySpecification();
+            var spec = new TopicWithSubCategorySpecification();
 
             var topics = await _topicRepository.GetAllWithSpec(spec);
 

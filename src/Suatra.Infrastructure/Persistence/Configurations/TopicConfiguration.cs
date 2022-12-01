@@ -10,8 +10,9 @@ namespace Suatra.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Topic> builder)
         {
+            builder.HasIndex(x => x.Name).IsUnique();
             builder.Property(x => x.Name).IsRequired().HasMaxLength(EntityConfigurationConstants.MaxLengthOf128);
-            builder.HasOne(x => x.Category).WithMany(cat => cat.Topics).HasForeignKey(x => x.CategoryId);
+            builder.HasOne(x => x.SubCategory).WithMany(cat => cat.Topics).HasForeignKey(x => x.SubCategoryId);
         }
     }
 }

@@ -4,6 +4,7 @@ using Suatra.Application.Features.Categories.Specifications;
 using Suatra.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
+using Suatra.Application.Common.Constants;
 
 namespace Suatra.Application.Features.Categories.Dto.Requests.Validators
 {
@@ -15,12 +16,12 @@ namespace Suatra.Application.Features.Categories.Dto.Requests.Validators
         {
             _categoryRepository = categoryRepository;
 
-            RuleFor(x => x.Name).NotEmpty().MaximumLength(200)
-                .MustAsync(UniqueCategory).WithMessage("Category already exists");
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(EntityConfigurationConstants.MaxLengthOf128)
+                .Must(UniqueCategory).WithMessage("Category already exists");
 
         }
 
-        private async Task<bool> UniqueCategory(string categoryName, CancellationToken cancellationToken)
+        private bool UniqueCategory(string categoryName)
         {
             if (string.IsNullOrEmpty(categoryName))
             {
@@ -29,7 +30,7 @@ namespace Suatra.Application.Features.Categories.Dto.Requests.Validators
 
             var spec = new CategoryByNameSpecification(categoryName);
 
-            var category = await _categoryRepository.GetEntityWithSpecAsync(spec);
+            var category =  _categoryRepository.GetEntityWithSpecAsync(spec).Result;
 
             return category == null;
         }

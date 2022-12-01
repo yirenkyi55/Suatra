@@ -24,6 +24,7 @@ namespace Suatra.Application.Features.Categories.Commands.CreateCategory
             _mapper = mapper;
             _categoryRepository = categoryRepository;
         }
+
         public async Task<CategoryResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             var category = _mapper.Map<Category>(request.CreateCategoryRequest);

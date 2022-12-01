@@ -5,21 +5,24 @@ using Suatra.Domain.Entities;
 
 namespace Suatra.Application.Features.Topics.Specifications
 {
-    public class TopicWithCategorySpecification: BaseSpecification<Topic>
+    public class TopicWithSubCategorySpecification: BaseSpecification<Topic>
     {
-        public TopicWithCategorySpecification()
+        public TopicWithSubCategorySpecification()
         {
            AddIncludes();
         }
 
-        public TopicWithCategorySpecification(Guid topicId): base(t=>t.Id == topicId)
+        public TopicWithSubCategorySpecification(Guid topicId): base(t=>t.Id == topicId)
         {
             AddIncludes();
         }
 
         private void AddIncludes()
         {
-            AddInclude(q=>q.Include(t=>t.Category));
+            AddInclude(q=>q
+                .Include(t=>t.SubCategory)
+                .ThenInclude(s=>s.Category)
+            );
         }
     }
 }

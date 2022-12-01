@@ -6,7 +6,7 @@ namespace Suatra.Application.Features.Topics.Dto.Requests
     {
         public string Name { get; set; }
 
-        public Guid CategoryId { get; set; }
+        public Guid SubCategoryId { get; set; }
     }
 
    
