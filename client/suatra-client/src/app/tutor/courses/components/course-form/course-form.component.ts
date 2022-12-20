@@ -6,53 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-form.component.scss'],
 })
 export class CourseFormComponent implements OnInit {
-  current = 0;
-  index = 'First-content';
-  fullName: string;
-
-  pre(): void {
-    this.current -= 1;
-    this.changeContent();
-  }
-
-  next(): void {
-    this.current += 1;
-    this.changeContent();
-  }
-
-  done(): void {
-    console.log('done');
-  }
-
-  gloverMethod(firstaname: string, lastName: string) {
-    return firstaname + lastName;
-  }
-
+  currentIndex = 0;
+  headers: string[] = ['About', 'Description', 'Audience'];
   constructor() {}
-
   ngOnInit(): void {}
 
-  onClick() {
-    console.log('do something');
+  onPreviousButtonClick() {
+    this.currentIndex -= 1;
   }
 
-  changeContent(): void {
-    switch (this.current) {
-      case 0: {
-        this.index = 'First-content';
-        break;
-      }
-      case 1: {
-        this.index = 'Second-content';
-        break;
-      }
-      case 2: {
-        this.index = 'third-content';
-        break;
-      }
-      default: {
-        this.index = 'error';
-      }
-    }
+  onNextButtonClick() {
+    this.currentIndex += 1;
+  }
+
+  onDoneButtonClick() {
+    console.log('Process is done');
   }
 }

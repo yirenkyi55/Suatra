@@ -24,6 +24,8 @@ import { SelectInputComponent } from './components/forms/select-input/select-inp
 import { FormButtonsComponent } from './components/forms/form-buttons/form-buttons.component';
 import { ObjectAccessorPipe } from './pipes/object-accessor.pipe';
 import { StatusLoadingPipe } from './pipes/status-loading.pipe';
+import { SwitchDisplayPipe } from './pipes/switch-display.pipe';
+import { StepsWrapperComponent } from './components/steps-wrapper/steps-wrapper.component';
 
 const declarations = [
   InputComponent,
@@ -40,6 +42,8 @@ const declarations = [
   FormButtonsComponent,
   ObjectAccessorPipe,
   StatusLoadingPipe,
+  SwitchDisplayPipe,
+  StepsWrapperComponent,
 ];
 const modules = [
   FormsModule,

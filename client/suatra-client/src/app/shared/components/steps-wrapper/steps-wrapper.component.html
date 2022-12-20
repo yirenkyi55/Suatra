@@ -1,0 +1,27 @@
+<div class="form-container">
+    <div class="form-container__header">
+        <h4>{{title}}</h4>
+    </div>
+    <div class="form-container__body">
+        <nz-steps [nzCurrent]="currentIndex">
+            <nz-step *ngFor="let item of  headers" [nzTitle]="item"></nz-step>
+        </nz-steps>
+        <div class="steps-content">
+            <ng-content select="[content]"></ng-content>
+        </div>
+    </div>
+
+    <div class="form-container__footer">
+        <div class="steps-action card__footer-right">
+            <app-button [inverted]="true" (handleClick)="pre()" *ngIf="currentIndex > 0">
+                <span>{{previousButtonText}}</span>
+            </app-button>
+            <app-button (handleClick)="next()" *ngIf="!isInLastStep ">
+                <span>{{nextButtonText}}</span>
+            </app-button>
+            <app-button (handleClick)="done()" *ngIf="isInLastStep">
+                <span>{{doneButtonText}}</span>
+            </app-button>
+        </div>
+    </div>
+</div>

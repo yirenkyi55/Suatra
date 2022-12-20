@@ -1,30 +1,14 @@
-<div class="form-container">
-    <div class="form-container__header">
-        <h4>Create New Course</h4>
-    </div>
-    <div class="form-container__body">
-        <nz-steps [nzCurrent]="current">
-            <nz-step nzTitle="Finished"></nz-step>
-            <nz-step nzTitle="In Progress"></nz-step>
-            <nz-step nzTitle="Waiting"></nz-step>
-        </nz-steps>
+<app-steps-wrapper title="Create New Course" [currentIndex]="currentIndex" [headers]="headers"
+    (handlePreviousButtonClick)="onPreviousButtonClick()" (handleNextButtonClick)="onNextButtonClick()"
+    (handleDoneButtonClick)="onDoneButtonClick()">
+    <ng-container content>
         <div class="steps-content">
-            <div>Content</div>
+            <div [ngStyle]="currentIndex| switchDisplay : 0" class="form-container__body--content">
+                First Component
+            </div>
+            <div [ngStyle]="currentIndex| switchDisplay : 1" class="form-container__body--content">Second Component
+            </div>
+            <div [ngStyle]="currentIndex| switchDisplay : 2" class="form-container__body--content">Third Component</div>
         </div>
-
-    </div>
-
-    <div class="form-container__footer">
-        <div class="steps-action card__footer-right">
-            <app-button [inverted]="true" (handleClick)="pre()" *ngIf="current > 0">
-                <span>Previous</span>
-            </app-button>
-            <app-button (handleClick)="next()" *ngIf="current < 2">
-                <span>Next</span>
-            </app-button>
-            <app-button (handleClick)="done()" *ngIf="current === 2">
-                <span>Done</span>
-            </app-button>
-        </div>
-    </div>
-</div>
+    </ng-container>
+</app-steps-wrapper>
